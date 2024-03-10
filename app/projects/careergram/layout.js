@@ -2,6 +2,11 @@ import NavBar from "@/app/components/Nav";
 import Footer from "@/app/components/Footer";
 import Back from "@/app/components/Back";
 import Link from "next/link";
+
+export const metadata = {
+	title: "Careergram",
+	description: "Case study for Careergram",
+};
 export default function Layout({
 	children, // will be a page or nested layout
 }) {

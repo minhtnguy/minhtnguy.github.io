@@ -3,6 +3,7 @@ import Link from "next/link";
 import Back from "../components/Back";
 import NavBar from "../components/Nav";
 import Footer from "../components/Footer";
+import { Metadata } from "next";
 
 export default function About() {
 	// [#FAFCFF]
@@ -16,7 +17,7 @@ export default function About() {
 				</div>
 
 				<div className="font-base md:text-xl text-lg space-y-6 leading-relaxed">
-					<p className="font-semibold">Hi, I`m Minh.</p>
+					<p className="font-semibold">Hi, I'm Minh.</p>
 					<p>
 						I am a designer, developer, and researcher who is excited about
 						building experiences to connect different communities through
@@ -25,8 +26,10 @@ export default function About() {
 					</p>
 					<p>
 						Currently, I am studying{" "}
-						<em>Computer Science, Informatics (HCI), and Psychology</em> at UC
-						Irvine.
+						<b className="font-semibold">
+							Computer Science, Informatics (HCI), and Psychology
+						</b>{" "}
+						at UC Irvine.
 					</p>
 					<p>
 						I am a research assistant at the{" "}
