@@ -17,7 +17,7 @@ export default function About() {
 				</div>
 
 				<div className="font-base md:text-xl text-lg space-y-6 leading-relaxed">
-					<p className="font-semibold">Hi, I'm Minh.</p>
+					<p className="font-semibold">Hi, I&apos;m Minh.</p>
 					<p>
 						I am a designer, developer, and researcher who is excited about
 						building experiences to connect different communities through
