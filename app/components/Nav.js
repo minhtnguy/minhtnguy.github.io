@@ -5,7 +5,7 @@ export default function NavBar({ isBlue }) {
 
 	return (
 		<nav
-			className={`top-0 flex justify-between ${textColor} font-medium md:px-16 px-10 md:py-14 py-8`}
+			className={`top-0 flex justify-between ${textColor} font-medium md:px-16 px-10 md:py-14 py-8 text-2xl`}
 		>
 			<Link href="/" className="">
 				minh nguyen

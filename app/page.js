@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import NavBar from "./components/Nav";
@@ -5,23 +6,30 @@ import Footer from "./components/Footer";
 import { LongCard, ShortCard } from "./components/Card";
 import { cn } from "@/utils/cn";
 import React from "react";
-import { BackgroundGradientAnimation } from "./components/HomeGradient";
+import { motion } from "framer-motion";
 
 export default function Home() {
 	return (
 		<main className="bg-[#FAFCFF]">
-			<BackgroundGradientAnimation>
-				<NavBar isBlue={false} />
-				<div className="md:space-y-7 space-y-3 md:px-16 px-10 md:py-24 py-8">
-					<h1 className="md:text-9xl text-6xl w-72 font-bold text-white">
-						MINH NGUYEN
+			<NavBar isBlue={true} />
+			<motion.div
+				className="md:px-16 px-10"
+				initial={{ opacity: 0, y: 75 }} // Initial state of the animation
+				animate={{ opacity: 1, y: 0 }} // Animation to perform when component mounts
+				transition={{ duration: 0.5, ease: "easeInOut" }} // Duration of the animation
+			>
+				<div className="mt-36 mb-64 space-y-3 lg:w-1/2">
+					<h1 className="font-semibold text-8xl text-primary-blue">
+						minh nguyen
 					</h1>
-					<p className="md:text-3xl text-lg text-white font-medium">
-						designer + developer
+					<p className="font-medium text-3xl text-primary-black">
+						<span className="text-[#721AB7]">designer</span> /{" "}
+						<span className="text-[#FF7B00]">developer </span>
+						studying computer science, informatics, and psychology at UC Irvine
 					</p>
 				</div>
-			</BackgroundGradientAnimation>
-			<div className="md:px-16 px-10 md:pt-14 pt-8 space-y-10">
+			</motion.div>
+			<div className="md:px-16 px-10 md:pt-12 pt-8 space-y-12">
 				<h2 className="md:text-xl text-lg font-bold text-gray-800">PROJECTS</h2>
 				{projects.map((project, index) => (
 					<Link href={project.href} target={project.target} key={index}>
