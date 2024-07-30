@@ -7,6 +7,7 @@ export const metadata = {
 	title: "Careergram",
 	description: "Case study for Careergram",
 };
+
 export default function Layout({
 	children, // will be a page or nested layout
 }) {

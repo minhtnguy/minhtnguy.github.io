@@ -15,7 +15,8 @@ module.exports = {
 			},
 			colors: {
 				"primary-blue": "#0960E4",
-				"primary-black": "#2A2D34",
+				"primary-black": "#353535",
+				"primary-gray": "#535353",
 			},
 			boxShadow: {
 				blue: "0 4px 14px 0 rgba(255, 0, 0, 0.1)",
