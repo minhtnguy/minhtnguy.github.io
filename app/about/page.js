@@ -10,7 +10,7 @@ export default function About() {
 	return (
 		<main className="md:my-24 md:ml-32 my-12 md:w-1/3 mx-8">
 			<h1 className="font-medium text-2xl text-primary-blue pb-10">
-				Hello, I'm Minh!
+				Hello, I&apos;m Minh!
 			</h1>
 			<div className="text-primary-black space-y-8 md:text-base text-sm">
 				<p>
@@ -21,8 +21,8 @@ export default function About() {
 				</p>
 				<p>
 					I recently graduated from UC Irvine where I studied Computer Science,
-					Psychology, and Informatics (HCI). Currently I am pursuing my master's
-					in Integrated Design and Media at NYU.
+					Psychology, and Informatics (HCI). Currently I am pursuing my
+					master&apos;s in Integrated Design and Media at NYU.
 				</p>
 
 				<div className="space-x-8 py-10 text-primary-black">
