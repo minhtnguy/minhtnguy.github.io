@@ -30,7 +30,7 @@ export default function ProjectCard({
 			onMouseEnter={onHover}
 			onMouseLeave={onLeave}
 		>
-			<div className="py-4 -ml-4 px-4 transition duration-300 ease-in-out hover:bg-gray-50 rounded-lg space-y-4">
+			<div className="py-4 -ml-4 -mr-4 px-4 transition duration-300 ease-in-out hover:bg-gray-50 rounded-lg space-y-4">
 				<div className="text-sm space-y-0.5">
 					<p className="font-medium">{title}</p>
 					<p className="text-gray-500">{description}</p>

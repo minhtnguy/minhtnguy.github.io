@@ -16,43 +16,45 @@ export default function Home() {
 	const projects = getProjects();
 	const [isHovered, setIsHovered] = useState(false);
 	return (
-		<main className="flex">
-			<div className="md:my-24 md:ml-32 my-12 md:w-1/3 mx-8">
-				<div className="space-y-4">
-					<h1 className="font-medium text-2xl text-primary-blue">
-						Minh Nguyen
-					</h1>
-					<p className="text-primary-black w-96 text-sm">
-						I design and build software with thoughtful intent and joy.
-						Currently studying Design @ NYU IDM.
-					</p>
-					<Link
-						href="/about"
-						target=""
-						className="text-primary-black text-sm hover:text-primary-blue hover:underline underline-offset-4 decoration-2 decoration-primary-blue pt-4 inline-block"
-					>
-						<p>More</p>
-					</Link>
-				</div>
-				<div className="mt-16">
-					<h2 className="font-medium text-primary-blue">Projects</h2>
-					<div>
-						{projects.map((project, index) => (
-							<Link href={project.href} target={project.target} key={index}>
-								<ProjectCard
-									key={index}
-									title={project.title}
-									description={project.description}
-									tags={project.tags}
-									onHover={() => setIsHovered(project)}
-									onLeave={() => setIsHovered(null)}
-								/>
-							</Link>
-						))}
+		<main className="flex flex-col md:flex-row">
+			<div className="w-full md:w-5/12 px-8 md:px-8">
+				<div className="my-8 md:my-24 md:ml-24">
+					<div className="space-y-4">
+						<h1 className="font-medium text-2xl text-primary-blue">
+							Minh Nguyen
+						</h1>
+						<p className="text-primary-black w-96 text-sm">
+							I design and build software with thoughtful intent and joy.
+							Currently studying Design @ NYU IDM.
+						</p>
+						<Link
+							href="/about"
+							target=""
+							className="text-primary-black text-sm hover:text-primary-blue hover:underline underline-offset-4 decoration-2 decoration-primary-blue pt-4 inline-block"
+						>
+							<p>More</p>
+						</Link>
+					</div>
+					<div className="mt-16">
+						<h2 className="font-medium text-primary-blue">Projects</h2>
+						<div>
+							{projects.map((project, index) => (
+								<Link href={project.href} target={project.target} key={index}>
+									<ProjectCard
+										key={index}
+										title={project.title}
+										description={project.description}
+										tags={project.tags}
+										onHover={() => setIsHovered(project)}
+										onLeave={() => setIsHovered(null)}
+									/>
+								</Link>
+							))}
+						</div>
 					</div>
 				</div>
 			</div>
-			<ProjectPreview project={isHovered} />
+			<ProjectPreview project={isHovered} className="bg-red-50" />
 			{/* <div className="flex h-screen ml-20 justify-center items-center drop-shadow-xl">
 				{isHovered && (
 					<Image
