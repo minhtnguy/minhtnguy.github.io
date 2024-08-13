@@ -9,8 +9,7 @@ export const metadata = {
 };
 export default function Layout({ children }) {
 	return (
-		<section className="bg-[#FAFCFF]">
-			<NavBar isBlue={true} />
+		<section>
 			<div className="lg:mx-96 md:mx-48 mx-10">{children}</div>
 			<Footer />
 		</section>

@@ -4,14 +4,68 @@ import Link from "next/link";
 import NavBar from "./components/Nav";
 import Footer from "./components/Footer";
 import { LongCard, ShortCard } from "./components/Card";
+import ProjectCard from "./components/ProjectCard";
+import ProjectPreview from "./components/ProjectPreview";
 import { cn } from "@/utils/cn";
-import React from "react";
+import React, { use } from "react";
 import { motion } from "framer-motion";
+import { getProjects, projects } from "./data/projects";
+import { useState } from "react";
 
 export default function Home() {
+	const projects = getProjects();
+	const [isHovered, setIsHovered] = useState(false);
 	return (
-		<main className="bg-[#FAFCFF]">
-			<NavBar isBlue={true} />
+		<main className="flex">
+			<div className="md:my-24 md:ml-32 my-12 md:w-1/3 mx-8">
+				<div className="space-y-4">
+					<h1 className="font-medium text-2xl text-primary-blue">
+						Minh Nguyen
+					</h1>
+					<p className="text-primary-black w-96 text-sm">
+						I design and build software with thoughtful intent and joy.
+						Currently studying Design @ NYU IDM.
+					</p>
+					<Link
+						href="/about"
+						target=""
+						className="text-primary-black text-sm hover:text-primary-blue hover:underline underline-offset-4 decoration-2 decoration-primary-blue pt-4 inline-block"
+					>
+						<p>More</p>
+					</Link>
+				</div>
+				<div className="mt-16">
+					<h2 className="font-medium text-primary-blue">Projects</h2>
+					<div>
+						{projects.map((project, index) => (
+							<Link href={project.href} target={project.target} key={index}>
+								<ProjectCard
+									key={index}
+									title={project.title}
+									description={project.description}
+									tags={project.tags}
+									onHover={() => setIsHovered(project)}
+									onLeave={() => setIsHovered(null)}
+								/>
+							</Link>
+						))}
+					</div>
+				</div>
+			</div>
+			<ProjectPreview project={isHovered} />
+			{/* <div className="flex h-screen ml-20 justify-center items-center drop-shadow-xl">
+				{isHovered && (
+					<Image
+						src="/images/fph/fph-preview.svg"
+						width={650}
+						height={650}
+						alt="careergram preview"
+						className="transition-opacity duration-300 ease-in-out"
+					/>
+				)}
+			</div> */}
+
+			{/* <NavBar isBlue={true} />
 			<motion.div
 				className="md:px-16 px-10"
 				initial={{ opacity: 0, y: 75 }} // Initial state of the animation
@@ -44,99 +98,8 @@ export default function Home() {
 						/>
 					</Link>
 				))}
-				{/* <h2 className="md:text-xl text-lg font-bold text-gray-800 pt-16">
-					OTHER
-				</h2>
-				<div className="flex md:flex-row flex-col gap-6 flex-1">
-					{other.map((other, index) => (
-						<Link href={other.href} target={other.target} key={index}>
-							<div className="flex flex-1">
-								<ShortCard
-									key={index}
-									title={other.title}
-									subtitle={other.subtitle}
-									tags={other.tags}
-									description={other.description}
-									img={other.img}
-									alt={other.alt}
-									className="h-16 flex flex-1"
-								/>
-							</div>
-						</Link>
-					))}
-				</div> */}
 			</div>
-			<Footer />
+			<Footer /> */}
 		</main>
 	);
 }
-
-const projects = [
-	{
-		title: "Careergram",
-		subtitle: "Design and Partnership Lab",
-		tags: "UX DESIGN, RESEARCH, WEB DEV",
-		description:
-			"Helping students develop deeper identities toward career pathways by improving mentor-mentee conversations through student reflection and AI analysis.",
-		img: "/images/careergram/cover.png",
-		alt: "Careergram home page",
-		href: "/projects/careergram",
-		target: "",
-	},
-	{
-		title: "Oloid Internship",
-		subtitle: "Oloid",
-		tags: "PRODUCT DESIGN, PROTOTYPING, BRAND IDENTITY, GRAPHIC DESIGN",
-		description:
-			"Reimagining physical security and access in the workplace. Redesigned the admin management portal for web and mobile interfaces.",
-		img: "/images/oloid/cover.png",
-		alt: "Oloid home page",
-		href: "/projects/oloid",
-		target: "",
-	},
-	{
-		title: "Edsight Design System",
-		subtitle: "Design and Partnership Lab",
-		tags: "UX DESIGN, DESIGN SYSTEMS, BRAND IDENTITY",
-		description:
-			"Creating a consistent and accesible dashboard for Edsight, a data driven dashboard to help math teachers improve their teaching practices.",
-		img: "/images/edsight/cover.png",
-		alt: "Screenshots of Edsight's design systems",
-		href: "https://medium.com/@mtnguy16/creating-edsight-2-0s-design-system-d0504eee786f",
-		target: "_blank",
-	},
-	{
-		title: "Half Court Sports",
-		subtitle: "Personal Project",
-		tags: "UI/UX DESIGN, USER RESEARCH",
-		description:
-			"Creating a consistent and accesible dashboard for Edsight, a data driven dashboard for math teachers to improve their teaching practices.",
-		img: "/images/half-court-sports/cover.png",
-		alt: "Screenshots of Edsight's design systems",
-		href: "/projects/half-court-sports",
-		target: "",
-	},
-];
-
-const other = [
-	{
-		title: "Analysis of Montreal Crime Data",
-		tags: "DATA ANALYSIS",
-		description:
-			"Participated in a datathon with the goal of identifying trends in crime rates and proposed solutions to reduce crime in Montreal. Won Social Impact Award.",
-		img: "/images/careergram/cover.png",
-		alt: "Careergram home page",
-		href: "/projects/careergram",
-		target: "",
-	},
-	{
-		title: "Toxicity Rising",
-		tags: "VR/AR, GAME DESIGN",
-		description:
-			"Created a VR escape room game with the core goal of teaching players about climate change and rising carbon emissions.",
-		img: "/images/oloid/cover.png",
-		alt: "Oloid home page",
-		href: "/projects/oloid",
-		target: "",
-	},
-];
