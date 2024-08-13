@@ -23,7 +23,7 @@ export default function Home() {
 						<h1 className="font-medium text-2xl text-primary-blue">
 							Minh Nguyen
 						</h1>
-						<p className="text-primary-black w-96 text-sm">
+						<p className="text-primary-black md:w-96 text-sm">
 							I design and build software with thoughtful intent and joy.
 							Currently studying Design @ NYU IDM.
 						</p>
