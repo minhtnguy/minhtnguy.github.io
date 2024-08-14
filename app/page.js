@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import { LongCard, ShortCard } from "./components/Card";
 import ProjectCard from "./components/ProjectCard";
 import ProjectPreview from "./components/ProjectPreview";
+import More from "./components/More";
 import { cn } from "@/utils/cn";
 import React, { use } from "react";
 import { motion } from "framer-motion";
@@ -27,13 +28,14 @@ export default function Home() {
 							I design and build software with thoughtful intent and joy.
 							Currently studying Design @ NYU IDM.
 						</p>
-						<Link
+						<More />
+						{/* <Link
 							href="/about"
 							target=""
 							className="text-primary-black text-sm hover:text-primary-blue hover:underline underline-offset-4 decoration-2 decoration-primary-blue pt-4 inline-block"
 						>
 							<p>More</p>
-						</Link>
+						</Link> */}
 					</div>
 					<div className="mt-16">
 						<h2 className="font-medium text-primary-blue">Projects</h2>

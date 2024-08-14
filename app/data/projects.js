@@ -43,6 +43,16 @@ export function getProjects() {
 			target: "_blank",
 		},
 		{
+			title: "Analysis of Montreal Crime Data",
+			tags: ["dev", "data analysis"],
+			description:
+				"Identifying trends in crime rates and proposed solutions to reduce crime in Montreal. Won Social Impact Award.",
+			img: "/images/datathon/map-plot.png",
+			alt: "Careergram home page",
+			href: "https://devpost.com/software/montrealidays",
+			target: "_blank",
+		},
+		{
 			title: "Half Court Sports",
 			subtitle: "Personal Project",
 			tags: ["ux design"],

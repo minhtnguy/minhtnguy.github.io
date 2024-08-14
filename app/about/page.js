@@ -8,7 +8,7 @@ import { Metadata } from "next";
 export default function About() {
 	// [#FAFCFF]
 	return (
-		<main className="md:my-24 md:ml-32 my-12 md:w-1/3 mx-8">
+		<main className="md:my-16 md:ml-32 my-8 md:w-1/3 mx-8">
 			<h1 className="font-medium text-2xl text-primary-blue pb-10">
 				Hello, I&apos;m Minh!
 			</h1>
@@ -28,28 +28,28 @@ export default function About() {
 				<div className="space-x-8 py-10 text-primary-black">
 					<Link
 						href="mailto:mtnguy16@uci.edu"
-						className="hover:underline underline-offset-4 decoration-2 decoration-primary-blue hover:text-primary-blue"
+						className="underline underline-offset-4 decoration-2 hover:decoration-primary-blue hover:text-primary-blue"
 					>
 						Email
 					</Link>
 					<Link
 						href="https://drive.google.com/file/d/1zU6MCCT1QnxStQ38AiWTHrVmkVfA7o7u/view?usp=sharing"
 						target="_blank"
-						className="hover:underline underline-offset-4 decoration-2 decoration-primary-blue hover:text-primary-blue"
+						className="underline underline-offset-4 decoration-2 hover:decoration-primary-blue hover:text-primary-blue"
 					>
 						Resume
 					</Link>
 					<Link
 						href="https://www.linkedin.com/in/minhtnguy/"
 						target="_blank"
-						className="hover:underline underline-offset-4 decoration-2 decoration-primary-blue hover:text-primary-blue"
+						className="underline underline-offset-4 decoration-2 hover:decoration-primary-blue hover:text-primary-blue"
 					>
 						Linkedin
 					</Link>
 					<Link
 						href="https://read.cv/minhnguyen"
 						target="_blank"
-						className="hover:underline underline-offset-4 decoration-2 decoration-primary-blue hover:text-primary-blue"
+						className="underline underline-offset-4 decoration-2 hover:decoration-primary-blue hover:text-primary-blue"
 					>
 						CV
 					</Link>
