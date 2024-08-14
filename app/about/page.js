@@ -8,7 +8,7 @@ import { Metadata } from "next";
 export default function About() {
 	// [#FAFCFF]
 	return (
-		<main className="md:my-16 md:ml-32 my-8 md:w-1/3 mx-8">
+		<main className="md:my-24 md:ml-32 my-8 md:w-1/3 mx-8">
 			<h1 className="font-medium text-2xl text-primary-blue pb-10">
 				Hello, I&apos;m Minh!
 			</h1>
