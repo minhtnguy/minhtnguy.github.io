@@ -7,7 +7,7 @@ export function getProjects() {
 			description:
 				"A donation management portal for pet food donation sites across the nation.",
 			img: "/images/fph/fph-preview.svg",
-			alt: "fph previewe",
+			alt: "fph preview",
 			href: "/projects/fph",
 			target: "",
 		},
