@@ -3,11 +3,6 @@ import ViewTransition from "@/app/components/ViewTransition";
 import AllProjects from "@/app/components/AllProjects";
 import LogoLink from "@/app/components/LogoLink";
 
-export const metadata = {
-	title: "Careergram",
-	description: "Case study for Careergram",
-};
-
 export default function Layout({ children }) {
 	return (
 		<ViewTransition>
