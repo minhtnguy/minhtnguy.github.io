@@ -24,7 +24,7 @@ export default function About() {
 
 				<Image src="/signature.svg" alt="signature" width={200} height={200} />
 
-				<div className="space-x-8 py-10 text-primary-black">
+				<div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:space-x-8 sm:py-10 text-primary-black">
 					<Link
 						href="mailto:mtnguy16@uci.edu"
 						className="underline underline-offset-4 decoration-1 hover:decoration-primary-blue hover:text-primary-blue"
@@ -57,7 +57,7 @@ export default function About() {
 						target="_blank"
 						className="underline underline-offset-4 decoration-1 hover:decoration-primary-blue hover:text-primary-blue"
 					>
-						Github
+						GitHub
 					</Link>
 				</div>
 			</div>
