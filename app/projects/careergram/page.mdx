@@ -1,21 +1,26 @@
 import Divider from "@/app/components/Divider";
-
-![Careergram home page](/images/careergram/home-page.png)
+import WideImage from "@/app/components/WideImage";
+import LottieAnimation from "@/app/components/LottieAnimation";
 
 # Careergram
 
-<Divider />
+Helping students explore career pathways by improving mentor-mentee conversations with student reflection and AI analysis.
+
+<WideImage src="/images/careergram/cover.svg" alt="Careergram cover image" />
 
 ## Overview
 
-Careergram is a research project part of the [UCI Design and Partnership Lab](https://www.daplab.education.uci.edu/). The goal of Careergram
-is to help young people develop deeper identities toward career pathways by mapping out the aspects
-of experiences about careers, identity, and self around which people develop their occupational
-identity.
+[Careergram](https://careergram.edsight.io/) is a research project part of the [UCI Design and Partnership Lab](https://www.daplab.education.uci.edu/). The goal of Careergram is to help young people develop deeper identities toward career pathways by mapping out the aspects of experiences about careers, identity, and self around which young people develop their occupational identity over their lifetimes.
+
+During the summer of 2023, I had the opportunity to own the design process for Careergram as the sole designer on the team, where I designed interfaces for student survey reflections and AI insights.
+
+I also helped bring Careergram to life through lots of code and collaboration!
+
+<Divider />
 
 ## Role
 
-Designer - Visual Identity, User Experience, Interaction Design, Design Systems
+Designer, Developer
 
 June 2023 - September 2023
 
@@ -25,122 +30,82 @@ Jessica Cai, Jenny Han, Sharon Ma, Minh Nguyen
 
 Advised by June Ahn
 
+<Divider />
+
 ## Problem
 
-Many young people encounter challenges with defining their occupational identity, a crucial aspect
-that shapes their perception of future career paths. Students will tend to seek career guidance from
-mentors, yet it can be difficult to come up with effective questions and conversation starters to help
-them define their occupational identity. Additionally, mentors may struggle with accurately
-understanding students' needs and goals, making it difficult to offer proper guidance and advice.
+Many young people encounter challenges with defining their occupational identity, a crucial aspect that shapes their perception of future career paths. Students will tend to seek career guidance from mentors, yet it can be difficult to come up with effective questions and conversation starters to help them define their occupational identity.
 
-![Mentor and mentee](/images/careergram/problem.png)
+Additionally, mentors may struggle with accurately understanding students' needs and goals, making it difficult to offer proper guidance and advice.
+
+{/* ![Mentor and mentee](/images/careergram/problem.png) */}
 
 ### How might we help young people develop deeper identities toward career pathways by fostering stronger connections between mentees and mentors?
 
 ## Solution
 
-Careergram aims to foster stronger connections between mentors and mentees by using short surveys
-to collect formative data from students. These surveys are based on five practical measures defined
-by the AXCIS Project. The data is analyzed using large language models to provide actionable insights
-and questions for students to discuss with their mentors. By doing so, this helps both mentors and
-mentees uncover information about career goals and values to provoke more engaging conversations.
+Careergram uses short surveys to collect reflective data from students. These surveys are based on five practical measures defined by the [AXCIS Project](https://sites.uci.edu/axcis/). The data is analyzed using AI to provide actionable insights and questions for students to discuss with their mentors.
 
-![Careergram measures](/images/careergram/measures.png)
+By doing so, this helps both mentors and mentees uncover information about career goals and values to provoke more engaging conversations.
 
 ## Refining the Survey Questions
 
-One of our first steps was to refine the survey questions based on the five practical measures to
-encourage better reflection from students and better analysis from the large language model.
+We first began refining the survey questions based on the five practical measures to encourage better reflection from students and better analysis from the large language model.
 
-During this process, we acknowledged that our analysis is not meant to provide students with the
-answers, but rather to spur insights and conversation topics during in-person meetings, which led to
-including action items for students to pursue after reading their insights.
+<WideImage src="/images/careergram/ideation.svg" alt="ideation notes" />
 
-![Low fidelity wireframes and Miro brainstorming](/images/careergram/lofi-miro.png)
+During this process, we acknowledged that our analysis is not meant to provide students with the answers, but rather to spur insights and conversation topics during in-person meetings, which led to including action items for students to pursue after reading their insights.
+
+Using the new survey questions, I began brainstorming different ways to display the AI analysis of student inputs.
+
+<WideImage src="/images/careergram/lofi.svg" alt="lofi wireframes" />
 
 ## Visual Identity
 
-For our brand's visual identity and design system, I focused on embodying a playful, bold, and fun
-spirit, drawing inspiration from tangrams typically found in the classroom. The design system was
-also based on Tailwind CSS and Tremor UI to allow for easy handoff to developers.
+For our brand's visual identity and design system, I focused on embodying a playful, bold, and fun spirit, drawing inspiration from tangrams typically found in the classroom. Our design system includes various colors, including those for our branding and individual practical measures.
 
-Our design system includes various colors, including those for our branding and individual practical
-measures. It was a point of emphasis to be clear and consistent with color usage to ensure color
-contrast meets the WCAG 2 AAA threshold throughout the designs.
+It was a point of emphasis to be clear and consistent with color usage to ensure color contrast meets the WCAG 2 AAA threshold throughout the designs. The design system was also based on Tailwind CSS and Tremor UI to allow for easy handoff to developers.
 
-![Tangrams](/images/careergram/tangrams.png)
-
-Our design system includes various colors, including those for our branding and individual practical
-measures. It was a point of emphasis to be clear and consistent with color usage to ensure color
-contrast meets the WCAG 2 AAA threshold throughout the designs.
-
-![Color palette](/images/careergram/colors.png)
+<WideImage src="/images/careergram/colors.svg" alt="color palette" />
 
 ## Survey Inputs
 
-A key area of focus was making sure the survey inputs were clear and straightforward in order to get
-accurate information for data analysis. The survey inputs varied from audio response, free response,
-and scale-based response.
+A key area of focus was making sure the survey inputs were clear and straightforward in order to get accurate information for data analysis. We wanted to ensure that the survey intake process was quick and easy, in order to reduce friction for students. The inputs varied from audio response, free response, and scale-based response.
 
-![Input pages](/images/careergram/input-pages.png)
+<WideImage
+	src="/images/careergram/survey-inputs.svg"
+	alt="survey input screen"
+/>
 
 ## Call to Actions
 
-To help facilitate mentor-mentee interaction, we introduced action items, such as reflection tasks
-based on their insights and suggested questions to ask their mentor. It was important to emphasize
-these sections so students would not miss them.
+To help facilitate mentor-mentee interaction, we introduced action items, such as reflection tasks based on their insights and suggested questions to ask their mentor. It was important to emphasize these sections at the beginning of each results page so students would not miss them.
 
-![Call to action section](/images/careergram/navigation.png)
+<WideImage src="/images/careergram/cta.svg" alt="call to action section" />
 
 ## Student Insights
 
-To communicate student insights, it was important that the information was presented in a clear
-and engaging format to make it easily understandable for both mentors and mentees.
+To communicate student insights, it was important that the information was presented in a clear and engaging format to make it easily understandable for both mentors and mentees.
 
-![Results pages](/images/careergram/results-pages.png)
+We also focused on the copywriting to incorporate a youthful and playful tone, catering to a young audience and increasing engagement for users as they read through their insights.
 
-## Copywriting
-
-We also focused on writing the copy to incorporate a youthful and playful tone, catering to a
-young audience and increasing engagement for users as they read through their insights.
-
-![Examples of copywriting](/images/careergram/headers.png)
+<WideImage src="/images/careergram/insights.svg" alt="student insights" />
 
 ## Loading Indicators
 
-Because Careergram includes AI analysis to process data, it was important to communicate loading
-statuses and engage users during long loading periods.
+Because Careergram includes AI analysis to process data, it was important to communicate loading statuses and engage users during long loading periods. I created this loading animation using Figma and Lottie Files.
 
-<div className="flex justify-center">
-	<img
-		src="/images/careergram/loading.gif"
-		alt="Loading gif"
-		className="border border-gray-200 mt-10"
+<div className="my-12 -mx-4 sm:-mx-8 md:-mx-16 lg:-mx-32 xl:-mx-40">
+	<LottieAnimation
+		src="/images/careergram/loading.json"
+		className="w-full h-72 p-16 bg-[#F7F4FF] mt-12 rounded-md"
 	/>
 </div>
 
-## Validating Designs
+## Looking Back...
 
-As a student, it was easy to understand the mentee perspective, but we were lacking insights from
-mentors. We interviewed a mentor from UCI's Sage Scholars Program where we were able to validate our
-design decisions and get a better understanding of how mentors might interpret students' insights.
+During my time on this project, I learned the importance of communicating and consistently sharing what I'm working on. This helped our team iterate quickly and keep everyone on the same page.
 
-Additionally, I conducted user testing with two users to polish the user interactions and flow.
-One major pain point was the interaction for adding new Careergrams. Based on this feedback,
-I added a hover interaction to make adding new Careergrams more intuitive.
+Additionally, I learned different ways of asking for feedback based on where I am in the design process such as through Slack messages, asynchronous Figma feedback, or synchronous feedback on Zoom.
 
-<div className="flex justify-center">
-	<img
-		src="/images/careergram/hover.gif"
-		alt="Hover gif"
-		className="border border-gray-200 mt-10"
-	/>
-</div>
-
-## Reflection
-
-During my time on this project, I learned the importance of communicating and consistently
-sharing what I'm working on. This helped iterate on ideas quickly and keep everyone on the same page.
-Additionally, I learned different ways of asking for feedback based on where I am in the design
-process, such as sending Slack messages, video demos, or walkthroughs. Moving forward, I hope to
-use these skills in future projects!
+We are currently building these designs in development and I am helping contribute to the front end development of this app. In the future, we plan to use the fully built version for research purposes, but for now you can check it out [here](https://careergram.edsight.io/)!

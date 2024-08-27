@@ -17,7 +17,7 @@ export default function ProjectCard({
 				return "bg-purple-100 text-purple-700";
 			case "dev":
 				return "bg-green-100 text-green-700";
-			case "data":
+			case "data viz":
 				return "bg-blue-100 text-blue-700";
 			default:
 				return "bg-gray-100 text-gray-700";

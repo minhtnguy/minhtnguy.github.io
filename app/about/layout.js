@@ -1,12 +1,16 @@
+import ViewTransition from "@/app/components/ViewTransition";
+
 export const metadata = {
 	title: "About",
 	description: "About Minh Nguyen",
 };
 
-export default function RootLayout({ children }) {
+export default function Layout({ children }) {
 	return (
-		<html>
-			<body>{children}</body>
-		</html>
+		<ViewTransition>
+			<section>
+				<div>{children}</div>
+			</section>
+		</ViewTransition>
 	);
 }

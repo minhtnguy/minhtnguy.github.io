@@ -5,9 +5,9 @@ export default function More() {
 		<Link
 			href="/about"
 			target=""
-			className="text-primary-black text-xs hover:text-primary-blue rounded-sm bg-gray-50 space-x-1.5 p-1 hover:border-primary-blue border hover:bg-blue-50 flex items-center inline-flex"
+			className="text-gray-500 hover:text-primary-blue text-sm space-x-0.5 flex items-center hover:ml-3 duration-300 ease-in-out"
 		>
-			<p>More</p>
+			<p>more</p>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="16"
@@ -18,7 +18,7 @@ export default function More() {
 				stroke-width="2"
 				stroke-linecap="round"
 				stroke-linejoin="round"
-				class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right"
+				className="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right transition-transform duration-300 group-hover:rotate-45"
 			>
 				<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 				<path d="M5 12l14 0" />

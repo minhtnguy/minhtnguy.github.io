@@ -11,17 +11,17 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 	return {
 		// Allows customizing built-in components, e.g. to add styling.
 		h1: ({ children }) => (
-			<h1 className="md:text-xl text-xl text-primary-black font-semibold">
+			<h1 className="md:text-xl mb-2 text-xl text-primary-black font-semibold">
 				{children}
 			</h1>
 		),
 		h2: ({ children }) => (
-			<h2 className="md:text-lg text-lg text-primary-black font-medium mt-10">
+			<h2 className="text-base mb-2 text-primary-black font-semibold mt-10">
 				{children}
 			</h2>
 		),
 		h3: ({ children }) => (
-			<h3 className="md:text-2xl text-xl text-primary-black font-bold mt-10">
+			<h3 className="text-base mb-2 text-primary-black font-medium mt-10">
 				{children}
 			</h3>
 		),
@@ -36,10 +36,17 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 			</h5>
 		),
 		p: ({ children }) => (
-			<p className="md:text-base text-base text-gray-700 mt-2">{children}</p>
+			<p className="text-base text-primary-black mb-4 leading-relaxed">
+				{children}
+			</p>
 		),
 		ul: ({ children }) => (
-			<ul className="text-base text-primary-black">{children}</ul>
+			<ul className="list-disc space-y-4 ml-5 text-base text-primary-black">
+				{children}
+			</ul>
+		),
+		li: ({ children }) => (
+			<li className="text-base text-primary-black">{children}</li>
 		),
 		a: ({ children, href }) => (
 			<a
@@ -51,7 +58,14 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 			</a>
 		),
 		img: ({ src, alt }) => (
-			<img src={src} alt={alt} className="my-10 flex justify-center"></img>
+			<div className="flex justify-center my-10">
+				<Image src={src} alt={alt} width={1200} height={675} className="" />
+			</div>
+		),
+		strong: ({ children }) => (
+			<strong className="text-base text-primary-black font-semibold">
+				{children}
+			</strong>
 		),
 	};
 }
