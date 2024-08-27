@@ -3,7 +3,7 @@ export function getProjects() {
 		{
 			title: "Feeding Pets of the Homeless",
 			subtitle: "Design and Partnership Lab",
-			tags: ["ux design"],
+			tags: ["ux design", "dev"],
 			description:
 				"A donation management portal for pet food donation sites across the nation.",
 			img: "/images/fph/fph-preview.svg",
