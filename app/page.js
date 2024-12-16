@@ -19,7 +19,7 @@ export default function Home() {
 	return (
 		<ViewTransition>
 			<main className="min-h-screen mt-20 flex sm:flex-row flex-col w-full md:space-x-32 space-y-16 sm:space-y-0 px-10">
-				<section className="space-y-4 sm:max-w-[500px] sm:sticky top-20 h-fit">
+				<section className="space-y-8 sm:max-w-[500px] sm:sticky top-20 h-fit">
 					<h1 className="text-primary-blue font-medium text-4xl md:text-6xl">
 						Minh Nguyen
 					</h1>
