@@ -5,7 +5,7 @@ export default function More() {
 		<Link
 			href="/about"
 			target=""
-			className="text-gray-500 hover:text-primary-blue text-sm space-x-0.5 flex items-center hover:ml-3 duration-300 ease-in-out"
+			className="text-gray-500 hover:text-primary-blue md:text-lg space-x-0.5 flex items-center hover:ml-3 duration-300 ease-in-out"
 		>
 			<p>more</p>
 			<svg
