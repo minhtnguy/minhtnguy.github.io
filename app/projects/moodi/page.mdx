@@ -1,6 +1,9 @@
 import Divider from "@/app/components/Divider";
 import WideImage from "@/app/components/WideImage";
-
+import Overview from "@/app/components/mdx-components/Overview";
+import SectionHeader from "@/app/components/mdx-components/SectionHeader";
+import Callout from "@/app/components/mdx-components/Callout";
+import PhotoGrid from "@/app/components/mdx-components/PhotoGrid";
 export const metadata = {
 	title: "Moodi",
 	description: "Case study for Moodi",
@@ -8,10 +11,98 @@ export const metadata = {
 
 # Moodi
 
-Exploring the role of neurotransmitters on our emotions through tangible learning. Full case study coming soon.
+Exploring the role of neurotransmitters on our emotions through tangible learning.
 
-<WideImage src="/images/moodi/moodi.svg" alt="Moodi cover image" />
+<WideImage src="/images/moodi/moodi-cover.jpg" alt="Moodi cover image" />
 
-<video autoPlay loop muted playsInline className="w-full rounded-lg">
-	<source src="/images/moodi/Moodi-PlayMode.MOV" type="video/quicktime" />
-</video>
+<Overview
+	role={["Digital Fabrication", "UX Research"]}
+	timeline="7 weeks"
+	team={["Minh Nguyen", "Cass Scheirer", "Ana Shuleva", "Kam Waugh"]}
+/>
+
+<SectionHeader subtitle="Context" title="What is Moodi?" />
+
+Moodi is a Tamagotchi-inspired interactive learning game to help middle school students to explore the chemistry behind our emotions. Students are able to mix different neurotransmitters (e.g., serotonin, dopamine) to discover and “unlock” new emotions.
+
+The core learning goal of this game is to teach emotional intelligence, the biological basis of emotions, and cause and effect relationships through hands-on engagement.
+
+This project was done as part of Tangible Electronics for Teaching and Learning at NYU EDCT/IDM.
+
+<Callout
+	subtitle="Problem"
+	description="Students lack interactive learning in the classroom, yet tangible learning has proven to help students better grasp different concepts."
+	title="How might we help middle school students better conceptualize and regulate emotions with tangible learning electronics?"
+/>
+
+<SectionHeader subtitle="Moodi 1.0" title="First prototypes and playtesting" />
+
+Our first prototype was a flimsy cardboard device made with Arduino, LEDs, and servo motors that would randomly select an emotion every 30 seconds, prompting students to identify the corresponding neurotransmitter combinations.
+
+<PhotoGrid
+	images={[
+		{ src: "/images/moodi/moodi-1.0(1).jpg", alt: "Moodi 1.0" },
+		{ src: "/images/moodi/moodi-1.0(2).jpg", alt: "Moodi 1.0" },
+	]}
+/>
+
+We had a chance to play-test this prototype with the students, where we gained valuable insights on students' current understanding of neurotransmitters and feedback on how to improve our device.
+
+For example, we noticed that the potentiometers were too small and placed too close to the LEDs, making it difficult for students to turn the potentiometers.
+
+<SectionHeader
+	subtitle="Moodi 2.0"
+	title="How can we make our tangible learning device more interactive?"
+/>
+
+For our second prototype, we invested in better quality materials, including LED strips to indicate neurotransmitter levels and larger potentiometers for more interactive collaborative gameplay.
+
+<PhotoGrid
+	images={[
+		{ src: "/images/moodi/moodi-2.0(1).jpg", alt: "Moodi 2.0" },
+		{ src: "/images/moodi/moodi-2.0(2).jpg", alt: "Moodi 2.0" },
+	]}
+/>
+
+For this prototype, we tested it with our classmates and middle school teachers, which confirmed many of our assumptions. During this session, we saw some opportunities to gamify Moodi even more.
+
+<SectionHeader subtitle="Moodi 3.0" title="Final playtesting session" />
+
+For our third prototype, we focused on making the game more interactive and engaging. We added an LCD screen to display the emotions and laser cut a container to hold the wires and components.
+
+We also created supporting paper handouts for the students, to help them retain information and make the experience more engaging, as well as a lesson plan for teachers to use in their classrooms.
+
+However, we were scrambling to modify the wiring of the game to fit the new hardware and we had to test it with a less polished version.
+
+<PhotoGrid
+	images={[
+		{ src: "/images/moodi/moodi-3.0(1).jpg", alt: "Moodi 3.0" },
+		{ src: "/images/moodi/moodi-3.0(2).jpg", alt: "Moodi 3.0" },
+		{ src: "/images/moodi/moodi-3.0(3).jpg", alt: "Moodi 3.0" },
+	]}
+/>
+
+Even with a less polished version than we would have liked, the students still enjoyed playing the game and we were able to get a sense of how the game would work in a classroom setting.
+
+Some feedback we received from the students was that they would like to see hints on how close they are to finding the correct neurotransmitter combinations.
+
+<SectionHeader subtitle="Moodi 4.0" title="Finishing touches!" />
+
+For our final prototype we updated the wiring, added labels and branding to our container, and added a new game mode. We also updated the LED strips to change to green once the correct level for a neurotransmitter is reached.
+
+Moodi 4.0 has two game modes:
+
+- **Discover mode**: Students can explore different neurotransmitters combinations to create different emotions.
+
+- **Play mode**: Students are prompted with an emotion and have to find the correct neurotransmitter combinations.
+
+<PhotoGrid
+	images={[
+		{ src: "/images/moodi/moodi-4.0(1).jpg", alt: "Moodi 4.0" },
+		{ src: "/images/moodi/moodi-4.0(2).jpg", alt: "Moodi 4.0" },
+	]}
+/>
+
+Overall, this was a great learning experience and I'm proud of what we were able to accomplish in just 7 weeks. This was my first time working with Arduino and I learned a lot about how to combine hardware and software to create a interactive learning experience.
+
+It was great to see the students enjoy playing the game and I'm looking forward to see how tangible learning devices like these can be used in the classroom!

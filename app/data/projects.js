@@ -1,30 +1,30 @@
 export function getProjects() {
 	return [
 		{
-			title: "Posty",
+			title: "Moodi",
 			subtitle: "Design and Partnership Lab",
 			tags: ["ux design"],
 			year: "2024",
-			description: "A task based email workflow.",
-			img: "/images/posty/cover.svg",
-			alt: "posty preview",
-			href: "/projects/posty",
+			description:
+				"Exploring the role of neurotransmitters on our emotions through tangible learning.",
+			img: "/images/moodi/moodi-4.0(1).jpg",
+			alt: "moodi preview",
+			href: "/projects/moodi",
 			target: "",
 			bgColor: "bg-slate-200",
+			hasShadow: true,
 		},
 		// {
-		// 	title: "Moodi",
+		// 	title: "Posty",
 		// 	subtitle: "Design and Partnership Lab",
 		// 	tags: ["ux design"],
 		// 	year: "2024",
-		// 	description:
-		// 		"Exploring the role of neurotransmitters on our emotions through tangible learning.",
-		// 	img: "/images/moodi/cover.svg",
-		// 	alt: "moodi preview",
-		// 	href: "/projects/moodi",
+		// 	description: "A task based email workflow.",
+		// 	img: "/images/posty/cover.svg",
+		// 	alt: "posty preview",
+		// 	href: "/projects/posty",
 		// 	target: "",
-		// 	bgColor: "bg-purple-800",
-		// 	hasShadow: false,
+		// 	bgColor: "bg-slate-200",
 		// },
 		{
 			title: "Feeding Pets of the Homeless",

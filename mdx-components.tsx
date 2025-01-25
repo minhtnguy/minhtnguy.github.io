@@ -11,7 +11,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 	return {
 		// Allows customizing built-in components, e.g. to add styling.
 		h1: ({ children }) => (
-			<h1 className="md:text-xl mb-2 text-xl text-primary-black font-semibold">
+			<h1 className="md:text-4xl mb-2 text-xl text-primary-black font-medium">
 				{children}
 			</h1>
 		),

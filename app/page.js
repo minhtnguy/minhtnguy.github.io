@@ -24,8 +24,8 @@ export default function Home() {
 						Minh Nguyen
 					</h1>
 					<p className="font-light md:text-2xl text-lg">
-						is a designer, developer, and researcher studying Integrated Design
-						and Media at NYU
+						is a designer, developer, and researcher studying emerging
+						technologies (IDM) at NYU
 					</p>
 					<More />
 				</section>

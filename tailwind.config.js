@@ -10,6 +10,9 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+			textColor: {
+				DEFAULT: "#2A2D34",
+			},
 			fontFamily: {
 				sans: ["var(--font-geist-sans)", ...fontFamily.sans],
 				mono: ["var(--font-geist-mono)", ...fontFamily.mono],
