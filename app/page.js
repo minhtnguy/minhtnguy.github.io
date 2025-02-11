@@ -25,7 +25,7 @@ export default function Home() {
 					</h1>
 					<p className="font-light md:text-2xl text-lg">
 						is a designer, developer, and researcher studying emerging
-						technologies (IDM) at NYU
+						technologies at NYU IDM
 					</p>
 					<More />
 				</section>
