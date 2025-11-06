@@ -1,0 +1,110 @@
+import Divider from "@/app/components/Divider";
+import WideImage from "@/app/components/WideImage";
+import LottieAnimation from "@/app/components/LottieAnimation";
+import Overview from "@/app/components/mdx-components/Overview";
+import PhotoGrid from "@/app/components/mdx-components/PhotoGrid";
+import Callout from "@/app/components/mdx-components/Callout";
+import SectionHeader from "@/app/components/mdx-components/SectionHeader";
+import ProjectTags from "@/app/components/mdx-components/ProjectTags";
+
+export const metadata = {
+	title: "Figgy",
+	description: "Context-aware component suggestions in Figma",
+};
+
+# Figgy
+
+Context-aware component suggestions in Figma.
+
+<ProjectTags />
+<WideImage src="/images/figgy/figgy.png" alt="Figgy cover image" />
+
+## Overview
+
+Figgy was a 1 day Generative UI/UX Hackathon project thinking about different ways to implement generative UIs that adapt to user actions, hosted by [Fractal Tech](https://fractalbootcamp.com/).
+
+<Overview
+	role={["Design Engineer"]}
+	timeline="1 day hackathon, January 2025"
+	team={["Team of 3"]}
+/>
+
+## Our Iterations
+
+We first explored a prompt-based AI assistant that generated wireframes on demand, but it didn't learn from or adapt to how designers actually work.
+
+However, we quickly decided to focus on a more context-aware approach, where the AI collaborates contextually in real time like a partner, not a vending machine like most existing AI tools.
+
+<WideImage src="/images/figgy/iteration-1.png" alt="Figgy iteration 1" />
+
+We next considered a behavior-driven toolbar that could learn from each designer's workflow, promoting commonly used tools and minimizing the rest. But we didn't have a clear way to measure usage context, and without the amount of user data needed, we decided not to pursue this direction.
+
+However, this iteration shifted our focus from chat-like AI interactions toward subtle, adaptive support naturally woven into the design process.
+
+<WideImage src="/images/figgy/iteration-2.png" alt="Figgy iteration 2" />
+
+While ideating, we were using assets from the Figma Design System, and realized how inefficient it was to go through your assets, search for what component you need, and add it to your design.
+
+**We wanted to limit the friction for this process and reduce the amount of clicks the user goes through to get a desired component.**
+
+<div className="-mx-4 sm:-mx-8 md:-mx-16 lg:-mx-32 xl:-mx-40 my-14 overflow-hidden h-[500px] rounded-md">
+	<figure className="h-full">
+		<img
+			src="/images/figgy/searching.gif"
+			alt="Searching for a component"
+			className="w-full h-full object-cover object-left-top rounded-md"
+		/>
+	</figure>
+</div>
+
+#### What if Figma could dynamically generate components for you while designing?
+
+## Introducing Figgy!
+
+A Figma agent that will recommend UI components from your design system based on the current context and common design patterns.
+
+## How this works
+
+<WideImage src="/images/figgy/components.png" alt="Figgy components" />
+
+Figgy takes the the width and height of the selected frame, compares it against components in the shadcn component library, and then uses openAI to suggest the component that best fits the context.
+
+<div className="-mx-4 sm:-mx-8 md:-mx-16 lg:-mx-32 xl:-mx-40 my-14">
+	<div className="overflow-hidden h-[500px] rounded-md bg-[#F5F5F5] p-12 flex items-start justify-center border border-[#E2E2E2]">
+		<figure className="h-[500px] w-[800px]">
+			<img
+				src="/images/figgy/big.gif"
+				alt="Big selection box"
+				className="w-full h-full object-cover object-right-top rounded-md"
+			/>
+		</figure>
+	</div>
+	<figcaption className="flex justify-center text-sm mt-4 font-light text-gray-600">
+		Big selection area
+	</figcaption>
+</div>
+
+<div className="-mx-4 sm:-mx-8 md:-mx-16 lg:-mx-32 xl:-mx-40 my-14">
+	<div className="overflow-hidden h-[500px] rounded-md bg-[#F5F5F5] p-12 flex items-start justify-center border border-[#E2E2E2]">
+		<figure className="h-[600px]">
+			<img
+				src="/images/figgy/small.gif"
+				alt="Small selection box"
+				className="w-full h-full object-cover object-top rounded-md"
+			/>
+		</figure>
+	</div>
+	<figcaption className="flex justify-center text-sm mt-4 font-light text-gray-600">
+		Small selection area
+	</figcaption>
+</div>
+
+## What's next?
+
+Since this was a 1 day hackathon project, there are a lot of things that could be improved. For example, adding more context, such as the name of the frame, other components that are already in the design, or cursor position, etc.
+
+It could be interesting to see this as a Figma plugin that can be used by anyone, working with you in the background as a live assistant.
+
+However, this could get really annoying over time, so I would've loved to think through the UX of this to make it more subtle and less intrusive.
+
+Overall, this was a really fun project thinking about generative UIs and it was really cool to see what we could get done in 1 day

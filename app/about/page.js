@@ -1,12 +1,14 @@
 import Link from "next/link";
 import LogoLink from "../components/LogoLink";
 import Image from "next/image";
+import { links } from "../data/links";
+import Logo from "@/app/components/Logo";
 
 export default function About() {
 	return (
 		<main className="md:my-24 md:ml-32 my-8 md:w-1/3 mx-8">
-			<LogoLink />
-			<h1 className="font-medium text-2xl text-primary-blue pb-10">
+			<Logo />
+			<h1 className="font-medium text-2xl text-primary-blue py-10">
 				Hello, I&apos;m Minh!
 			</h1>
 			<div className="text-primary-black space-y-8 md:text-base leading-relaxed">
@@ -26,34 +28,27 @@ export default function About() {
 
 				<div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:space-x-8 sm:py-10 text-primary-black">
 					<Link
-						href="mailto:mtnguy16@uci.edu"
+						href={links.email}
 						className="underline underline-offset-4 decoration-1 hover:decoration-primary-blue hover:text-primary-blue"
 					>
 						Email
 					</Link>
 					<Link
-						href="https://drive.google.com/file/d/1IeXJapfJutgRlgaXTcidE0UnfRaohdyd/view?usp=sharing"
+						href={links.resume}
 						target="_blank"
 						className="underline underline-offset-4 decoration-1 hover:decoration-primary-blue hover:text-primary-blue"
 					>
 						Resume
 					</Link>
 					<Link
-						href="https://www.linkedin.com/in/minhtnguy/"
+						href={links.linkedin}
 						target="_blank"
 						className="underline underline-offset-4 decoration-1 hover:decoration-primary-blue hover:text-primary-blue"
 					>
 						Linkedin
 					</Link>
 					<Link
-						href="https://read.cv/minhnguyen"
-						target="_blank"
-						className="underline underline-offset-4 decoration-1 hover:decoration-primary-blue hover:text-primary-blue"
-					>
-						CV
-					</Link>
-					<Link
-						href="https://github.com/minhtnguy"
+						href={links.github}
 						target="_blank"
 						className="underline underline-offset-4 decoration-1 hover:decoration-primary-blue hover:text-primary-blue"
 					>
