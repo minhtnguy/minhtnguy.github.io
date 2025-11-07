@@ -174,7 +174,7 @@ export default function Home() {
 											/>
 										)}
 									</div>
-									<div className="flex justify-between items-center">
+									<div className="flex justify-between items-center mt-5">
 										<p className="text-[#686868] text-sm sm:text-base font-mono font-medium">
 											{project.title.toUpperCase()}
 										</p>
