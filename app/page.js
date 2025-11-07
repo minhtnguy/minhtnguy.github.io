@@ -45,13 +45,14 @@ export default function Home() {
 				width: 500,
 				className: "object-cover rounded-sm",
 			},
-			containerClass: "flex items-center justify-center p-12",
+			containerClass:
+				"flex items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12",
 		},
 		{
 			imageSrc: "/images/figgy/figgy.png",
 			imageType: "image",
 			imageProps: { height: 375, width: 500, className: "object-cover" },
-			containerClass: "overflow-hidden relative p-4",
+			containerClass: "overflow-hidden relative p-2 sm:p-3 md:p-4",
 		},
 		{
 			imageSrc: "/images/recollection/shuffle.png",
@@ -72,7 +73,8 @@ export default function Home() {
 				width: 500,
 				className: "object-cover rounded-sm",
 			},
-			containerClass: "flex items-center justify-center p-12",
+			containerClass:
+				"flex items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12",
 		},
 		{
 			imageSrc: "/images/fph/fph.png",
@@ -100,47 +102,47 @@ export default function Home() {
 				description={hoveredProject?.description}
 				isVisible={!!hoveredProject}
 			/>
-			<div className="bg-primary-blue my-24 mx-48">
-				<div className=" bg-[#FFFFFC] ">
-					<div className="flex justify-between ">
-						<div className="w-[480px]">
+			<div className="bg-primary-blue my-8 md:my-16 lg:my-24 mx-4 sm:mx-6 md:mx-12 lg:mx-24 xl:mx-48">
+				<div className="bg-[#FFFFFC] p-4 sm:p-6 md:p-8 lg:p-12">
+					<div className="flex flex-col md:flex-row md:justify-between gap-8 md:gap-0">
+						<div className="w-full md:w-[480px]">
 							<div className="space-y-4">
-								<h1 className="text-xl font-medium text-primary-blue">
+								<h1 className="text-lg sm:text-xl font-medium text-primary-blue">
 									Minh Nguyen
 								</h1>
-								<p className="leading-relaxed text-primary-black">
+								<p className="text-sm sm:text-base leading-relaxed text-primary-black">
 									is a designer engineer who works across design and code to
 									quickly prototype ideas you can try, touch, and learn from.
 								</p>
-								<p className="leading-relaxed text-primary-black">
+								<p className="text-sm sm:text-base leading-relaxed text-primary-black">
 									Previously @ Salesforce.
 								</p>
 							</div>
 						</div>
-						<div className="flex flex-col space-y-4">
+						<div className="flex flex-row md:flex-col space-x-4 md:space-x-0 md:space-y-4">
 							<Link href="/about">
-								<button className="hover:text-primary-blue transition-transform duration-300 hover:rotate-[-5deg]">
+								<button className="text-sm sm:text-base hover:text-primary-blue transition-transform duration-300 hover:rotate-[-5deg]">
 									About
 								</button>
 							</Link>
 							<Link href={links.linkedin} target="_blank">
-								<button className="hover:text-primary-blue transition-transform duration-300 hover:rotate-[2.5deg]">
+								<button className="text-sm sm:text-base hover:text-primary-blue transition-transform duration-300 hover:rotate-[2.5deg]">
 									LinkedIn
 								</button>
 							</Link>
 							<Link href={links.resume} target="_blank">
-								<button className="hover:text-primary-blue transition-transform duration-300 hover:rotate-[-2.5deg]">
+								<button className="text-sm sm:text-base hover:text-primary-blue transition-transform duration-300 hover:rotate-[-2.5deg]">
 									Resume
 								</button>
 							</Link>
 							<Link href={links.email} target="_blank">
-								<button className="hover:text-primary-blue transition-transform duration-300 hover:rotate-[5deg]">
+								<button className="text-sm sm:text-base hover:text-primary-blue transition-transform duration-300 hover:rotate-[5deg]">
 									Email
 								</button>
 							</Link>
 						</div>
 					</div>
-					<div className="grid grid-cols-2 gap-x-8 gap-y-16 mt-32">
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-x-8 md:gap-y-16 mt-16 md:mt-24 lg:mt-32">
 						{projectConfigs.map((config, index) => {
 							const project = projects.find(
 								(p) => p.href === imagePathMap[config.imageSrc]
@@ -162,15 +164,15 @@ export default function Home() {
 									className="space-y-6 hover:scale-[0.95] transition-all duration-300 ease-in-out block"
 								>
 									<div
-										className={`h-[375px] w-full bg-[#F5F5F5] border border-[#E2E2E2] rounded-md ${config.containerClass}`}
+										className={`h-[250px] sm:h-[300px] md:h-[375px] w-full bg-[#F5F5F5] border border-[#E2E2E2] rounded-md ${config.containerClass}`}
 										onMouseEnter={() => setHoveredProject(project)}
 										onMouseLeave={() => setHoveredProject(null)}
 									>
 										{config.imageType === "lottie" ? (
-											<div className="my-12 -mx-4 sm:-mx-8 md:-mx-16 lg:-mx-32 xl:-mx-40">
+											<div className="my-6 sm:my-8 md:my-12 -mx-2 sm:-mx-4 md:-mx-8 lg:-mx-16 xl:-mx-32 2xl:-mx-40">
 												<LottieAnimation
 													src={config.imageSrc}
-													className="w-full h-72"
+													className="w-full h-48 sm:h-56 md:h-64 lg:h-72"
 												/>
 											</div>
 										) : (
@@ -182,10 +184,12 @@ export default function Home() {
 										)}
 									</div>
 									<div className="flex justify-between items-center">
-										<p className="text-[#686868] text-base font-mono font-medium">
+										<p className="text-[#686868] text-sm sm:text-base font-mono font-medium">
 											{project.title.toUpperCase()}
 										</p>
-										<p className="text-[#B7B7B7] text-base">{project.year}</p>
+										<p className="text-[#B7B7B7] text-sm sm:text-base">
+											{project.year}
+										</p>
 									</div>
 								</ProjectWrapper>
 							);
