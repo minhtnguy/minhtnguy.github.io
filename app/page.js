@@ -152,17 +152,8 @@ export default function Home() {
 
 							const isClickable = project.href !== "/projects/recollection";
 
-							const ProjectWrapper = isClickable ? Link : "div";
-
-							return (
-								<ProjectWrapper
-									key={index}
-									{...(isClickable && {
-										href: project.href,
-										target: project.target || "",
-									})}
-									className="space-y-6 hover:scale-[0.95] transition-all duration-300 ease-in-out block"
-								>
+							const content = (
+								<>
 									<div
 										className={`h-[250px] sm:h-[300px] md:h-[375px] w-full bg-[#F5F5F5] border border-[#E2E2E2] rounded-md ${config.containerClass}`}
 										onMouseEnter={() => setHoveredProject(project)}
@@ -191,7 +182,26 @@ export default function Home() {
 											{project.year}
 										</p>
 									</div>
-								</ProjectWrapper>
+								</>
+							);
+
+							return (
+								<div
+									key={index}
+									className="space-y-6 hover:scale-[0.95] transition-all duration-300 ease-in-out"
+								>
+									{isClickable ? (
+										<Link
+											href={project.href}
+											target={project.target || ""}
+											className="block"
+										>
+											{content}
+										</Link>
+									) : (
+										<div className="block">{content}</div>
+									)}
+								</div>
 							);
 						})}
 					</div>
