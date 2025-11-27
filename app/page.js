@@ -111,8 +111,8 @@ export default function Home() {
 									Minh Nguyen
 								</h1>
 								<p className="text-sm sm:text-base leading-relaxed text-primary-black">
-									is a designer engineer who works across design and code to
-									quickly prototype ideas you can try, touch, and learn from.
+									is a designer who works across design and code to quickly
+									prototype ideas you can try, touch, and learn from.
 								</p>
 								<p className="text-sm sm:text-base leading-relaxed text-primary-black">
 									Previously @ Salesforce.
