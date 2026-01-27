@@ -43,10 +43,10 @@ export default function Home() {
 			imageProps: {
 				height: 375,
 				width: 500,
-				className: "object-cover rounded-sm",
+				className: "object-cover rounded-sm w-full h-full",
 			},
 			containerClass:
-				"flex items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12",
+				"flex items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12 overflow-hidden",
 		},
 		{
 			imageSrc: "/images/figgy/figgy.png",
@@ -71,10 +71,10 @@ export default function Home() {
 			imageProps: {
 				height: 375,
 				width: 500,
-				className: "object-cover rounded-sm",
+				className: "object-cover rounded-sm w-full h-full",
 			},
 			containerClass:
-				"flex items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12",
+				"flex items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12 overflow-hidden",
 		},
 		{
 			imageSrc: "/images/fph/fph.png",
@@ -102,8 +102,8 @@ export default function Home() {
 				description={hoveredProject?.description}
 				isVisible={!!hoveredProject}
 			/>
-			<div className="bg-primary-blue my-8 md:my-16 lg:my-24 mx-4 sm:mx-6 md:mx-12 lg:mx-24 xl:mx-48">
-				<div className="bg-[#FFFFFC] p-4 sm:p-6 md:p-8 lg:p-12">
+			<div className="bg-primary-blue my-8 md:my-16 lg:my-24 mx-4 sm:mx-6 md:mx-12 lg:mx-24 xl:mx-48 relative z-10 rounded-t-2xl">
+				<div className="bg-[#FFFFFC] p-4 sm:p-6 md:p-8 lg:p-12 relative z-10">
 					<div className="flex flex-col md:flex-row md:justify-between gap-8 md:gap-0">
 						<div className="w-full md:w-[480px]">
 							<div className="space-y-4">
@@ -155,7 +155,7 @@ export default function Home() {
 							const content = (
 								<>
 									<div
-										className={`h-[250px] sm:h-[300px] md:h-[375px] w-full bg-[#F5F5F5] border border-[#E2E2E2] rounded-md ${config.containerClass}`}
+										className={`h-[300px] sm:h-[375px] md:h-[375px] w-full bg-[#F5F5F5] border border-[#E2E2E2] rounded-md ${config.containerClass}`}
 										onMouseEnter={() => setHoveredProject(project)}
 										onMouseLeave={() => setHoveredProject(null)}
 									>
@@ -206,7 +206,6 @@ export default function Home() {
 						})}
 					</div>
 				</div>
-				{/* <Image src="/signature.svg" alt="signature" width={200} height={200} /> */}
 			</div>
 		</ViewTransition>
 	);

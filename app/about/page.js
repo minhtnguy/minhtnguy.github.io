@@ -24,33 +24,33 @@ export default function About() {
 					master&apos;s in Integrated Design and Media at NYU.
 				</p>
 
-				<Image src="/signature.svg" alt="signature" width={200} height={200} />
+				{/* <Image src="/signature.svg" alt="signature" width={200} height={200} /> */}
 
 				<div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:space-x-8 sm:py-10 text-primary-black">
 					<Link
 						href={links.email}
-						className="underline underline-offset-4 decoration-1 hover:decoration-primary-blue hover:text-primary-blue"
+						className="hover:text-primary-blue transition-transform duration-300 hover:rotate-[5deg]"
 					>
 						Email
 					</Link>
 					<Link
 						href={links.resume}
 						target="_blank"
-						className="underline underline-offset-4 decoration-1 hover:decoration-primary-blue hover:text-primary-blue"
+						className="hover:text-primary-blue transition-transform duration-300 hover:rotate-[-2.5deg]"
 					>
 						Resume
 					</Link>
 					<Link
 						href={links.linkedin}
 						target="_blank"
-						className="underline underline-offset-4 decoration-1 hover:decoration-primary-blue hover:text-primary-blue"
+						className="hover:text-primary-blue transition-transform duration-300 hover:rotate-[2.5deg]"
 					>
 						Linkedin
 					</Link>
 					<Link
 						href={links.github}
 						target="_blank"
-						className="underline underline-offset-4 decoration-1 hover:decoration-primary-blue hover:text-primary-blue"
+						className="hover:text-primary-blue transition-transform duration-300 hover:rotate-[-5deg]"
 					>
 						GitHub
 					</Link>

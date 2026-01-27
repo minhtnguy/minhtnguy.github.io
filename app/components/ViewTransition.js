@@ -16,12 +16,14 @@ export default function ViewTransition({
 			animate={animate}
 			exit={exit}
 			transition={transition}
+			suppressHydrationWarning
 		>
-			<div className={className}>
+			<div className={className} suppressHydrationWarning>
 				<motion.div
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					transition={{ delay: 0.2, duration: 0.5 }}
+					suppressHydrationWarning
 				>
 					{children}
 				</motion.div>
