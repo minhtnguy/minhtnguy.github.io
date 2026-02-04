@@ -1,5 +1,6 @@
 import Divider from "@/app/components/Divider";
 import WideImage from "@/app/components/WideImage";
+import TimelineTable from "@/app/components/mdx-components/TimelineTable";
 
 export const metadata = {
 	title: "IDM Thesis",
@@ -8,17 +9,17 @@ export const metadata = {
 
 # IDM Thesis
 
-## Week 0
+## Week 1
 **Project Proposal**:
 AI Augmented Video Collaboration
 
 My project explores how to combine AI with tone, gesture, and spatial interaction to reimagine virtual brainstorming and make ideas and references into artifacts that participants can see and move.
 
-![Timmy Zoom Call](/images/thesis/timmy-zoom.png)
+<WideImage src="/images/thesis/mock.png" alt="Mockup of the project" />
 
 Using AI to analyze the live voice transcript of the conversation, it would generate references and artifacts that are relevant to the conversation. Participants can then use hand gestures to control the artifacts and move them around the screen.
 
-## WEEK 1
+## WEEK 2
 
 **Hand Gesture Experiments**
 
@@ -27,24 +28,84 @@ Using Media Pipe, I experimented with different hand gestures and movements to c
 Pinch to grab objects and resize them:
 
 <video controls className="w-full my-12 rounded-md">
-	<source src="/images/thesis/week1/squares.mp4" type="video/mp4" />
+	<source src="/images/thesis/squares.mp4" type="video/mp4" />
 	Your browser does not support the video element.
 </video>
 
 Drag to navigate the canvas:
 
 <video controls className="w-full my-12 rounded-md">
-	<source src="/images/thesis/week1/grid.mp4" type="video/mp4" />
+	<source src="/images/thesis/grid.mp4" type="video/mp4" />
 	Your browser does not support the video element.
 </video>
 
 Fun physics experiment with dots that move around as the hand moves around:
 
 <video controls className="w-full my-12 rounded-md">
-	<source src="/images/thesis/week1/dots.mp4" type="video/mp4" />
+	<source src="/images/thesis/dots.mp4" type="video/mp4" />
 	Your browser does not support the video element.
 </video>
 
 Through these experiements, I realized how tricky it gets when you start to combine multiple gestures and interactions together. The hand tracking is not always accurate and begins to get confused when you start to introduce multiple gestures at the same time. 
 
 For next week, I want to think through the entire user experience of the project, and how all the components will interact with each other. Maybe start narrowing down the specific gestures that will be used and what the user will be able to do with them.
+
+## WEEK 3
+
+**Project Timeline**
+
+<TimelineTable
+	data={[
+		{ week: "Week 1", activity: "Project Proposal Presentation" },
+		{ week: "Week 2", activity: "1st Prototype / Experiments" },
+		{ week: "Week 3", activity: "Storyboard + Head Tracking Prototype" },
+		{ week: "Week 4 - Demo Prototype", activity: "AI Transcription / Image Generation" },
+		{ week: "Week 5", activity: "AI Transcription / Image Generation + Annotated Paper" },
+		{ week: "Week 6", activity: "First Full Prototype (or Wizard of Oz prototype?)" },
+		{ week: "Week 7 - Demo Day (3/11)", activity: "Prepare for Demo" },
+		{ week: "Week 8", activity: "Iterate - Revise based on Demo Day feedback" },
+		{ week: "Week 9", activity: "Progress Presentation" },
+		{ week: "Week 10", activity: "Iterate" },
+		{ week: "Week 11 - Paper Due", activity: "Iterate" },
+		{ week: "Week 12", activity: "Iterate + User Testing" },
+		{ week: "Week 13", activity: "Polish + Documentation" },
+        { week: "Week 14 - Final Presentation", activity: "Documentation + Final Deliverables" },
+		{ week: "Week 15 - Final Crit + Showcase", activity: "Prepare for Showcase" },
+	]}
+/>
+
+**Storyboard**
+<WideImage src="/images/thesis/storyboard.png" alt="Storyboard" />
+
+As I was thinking through the storyboard, some questions arose:
+- Do artifacts belong to individuals or the group? 
+- Do they move from one person to another? 
+- Are the artifacts saved to a shared space/archive?
+
+I wondered if there should be a shared canvas where artifacts can be saved to and moved around by all participants. However, this began to feel similar to tools we have today like Figma or Miro. I began to rethink how ideas should move and combine, realizing that “saving” visuals to a shared space isn't the novel part of the project.
+
+I am more interested in how the system makes changing ideas and perspectives visible in real time, highlighting where participants align, diverge, and gradually converge. This led me to focus more on a more ephemeral experience with the spatial position of artifacts.
+
+In conversations today, everyday conversation context is already shared cognitively, but it is not shared perceptually. However, in this project, the conversational context is used to understand which ideas the group is collectively moving toward to generate the artifacts. 
+
+The images generated belong to each individual participant, appearing in their personal space to reflect the ideas they introduce rather than forming a shared archive. Gestures act as signals of attention and emphasis that help the system understand which ideas the group is collectively moving toward. 
+
+As a result, participants can sense a common direction through space, gesture, and visuals rather than just using words.
+
+Gestures:
+- Point to an image to highlight it
+- Pinch to grab image and resize
+- Grab and throw to remove
+- Grab two images and merge them into one (???)
+
+### Head Tracking
+
+Elements move with your head movement, point to an element to illuminate it:
+
+<video controls className="w-full my-12 rounded-md">
+	<source src="/images/thesis/head-tracking.mp4" type="video/mp4" />
+	Your browser does not support the video element.
+</video>
+
+
+
