@@ -11,12 +11,15 @@ export default function ProjectTags() {
 
 	const getTagStyle = (tag) => {
 		switch (tag.toLowerCase()) {
-			case "design":
-			case "product design":
 			case "ux design":
 				return "bg-purple-100 text-purple-700";
 			case "dev":
 				return "bg-green-100 text-green-700";
+			case "design":
+			case "product design":
+				return "bg-purple-100 text-purple-700";
+			case "ai":
+				return "bg-blue-100 text-blue-700";
 			case "data viz":
 				return "bg-blue-100 text-blue-700";
 			case "arduino":

@@ -3,14 +3,60 @@
 @tailwind utilities;
 
 :root {
-	--font-geist-sans: "GeistSans", -apple-system, BlinkMacSystemFont, "Segoe UI",
-		"Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+	--font-geist-sans:
+		"GeistSans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+		"Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
 		"Helvetica Neue", sans-serif;
-	--font-geist-mono: "GeistMono", "SF Mono", "Monaco", "Inconsolata",
-		"Roboto Mono", "Source Code Pro", "Menlo", "Consolas", "DejaVu Sans Mono",
-		monospace;
+	--font-geist-mono:
+		"GeistMono", "SF Mono", "Monaco", "Inconsolata", "Roboto Mono",
+		"Source Code Pro", "Menlo", "Consolas", "DejaVu Sans Mono", monospace;
 }
 
 body {
 	font-family: var(--font-geist-sans);
+}
+
+.dot-grid-bg {
+	background-color: #fafafa;
+	background-image: radial-gradient(#d4d4d4 1px, transparent 1px);
+	background-size: 20px 20px;
+}
+
+/* Rainbow border on hover for playground card */
+.playground-card-rainbow {
+	position: relative;
+	overflow: hidden;
+}
+.playground-card-rainbow::before {
+	content: "";
+	position: absolute;
+	inset: -2px;
+	z-index: -1;
+	border-radius: inherit;
+	background: conic-gradient(
+		from 0deg,
+		#ef4444,
+		#f97316,
+		#eab308,
+		#22c55e,
+		#06b6d4,
+		#3b82f6,
+		#8b5cf6,
+		#ec4899,
+		#ef4444
+	);
+	opacity: 0;
+	transition: opacity 0.25s ease;
+}
+.playground-card-rainbow:hover::before {
+	opacity: 1;
+}
+
+/* Hide scrollbar but keep scroll */
+.scrollbar-hide {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+	display: none;
 }
