@@ -9,7 +9,7 @@ import { playgroundDescriptions } from "./descriptions";
 
 const PLAYGROUND_IMAGES = [
 	{
-		src: "/images/playground/ai-led-panels.jpg",
+		src: "/images/playground/ai.jpg",
 		width: 210,
 		height: 158,
 		slug: "ai-led-panels",
