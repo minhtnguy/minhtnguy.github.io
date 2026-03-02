@@ -164,7 +164,7 @@ export default function Home() {
 				isVisible={!!hoveredProject}
 			/>
 			<div className="bg-primary-blue my-8 md:my-16 lg:my-24 mx-4 sm:mx-6 md:mx-12 lg:mx-24 xl:mx-48 relative z-10 rounded-t-2xl">
-				<div className="bg-[#FFFFFC] p-4 sm:p-6 md:p-8 lg:p-12 relative z-10">
+				<div className="bg-[#FFFFFF] p-4 sm:p-6 md:p-8 lg:p-12 relative z-10">
 					<div className="flex flex-col md:flex-row md:justify-between gap-8 md:gap-0">
 						<div className="w-full md:w-[480px]">
 							<div className="space-y-4">
