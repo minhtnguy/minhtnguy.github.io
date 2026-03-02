@@ -17,8 +17,12 @@ export default function Projects({
 				return "bg-purple-100 text-purple-700";
 			case "dev":
 				return "bg-green-100 text-green-700";
-			case "data viz":
+			case "design":
+				return "bg-purple-100 text-purple-700";
+			case "AI":
 				return "bg-blue-100 text-blue-700";
+			case "arduino":
+				return "bg-orange-100 text-orange-700";
 			default:
 				return "bg-gray-100 text-gray-700";
 		}
@@ -43,18 +47,20 @@ export default function Projects({
 					<span className="text-gray-500">{year}</span>
 				</div>
 				<p className="text-gray-700 w-3/4">{description}</p>
-				{/* <div className="space-x-1.5">
-					{tags.map((tag, index) => (
-						<span
-							key={index}
-							className={`inline-flex items-center rounded-md px-1.5 py-0.5 text-xs font-medium ${getTagStyle(
-								tag
-							)}`}
-						>
-							{tag}
-						</span>
-					))}
-				</div> */}
+				{tags?.length > 0 && (
+					<div className="flex flex-wrap gap-1.5">
+						{tags.map((tag, index) => (
+							<span
+								key={index}
+								className={`inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ${getTagStyle(
+									tag,
+								)}`}
+							>
+								{tag}
+							</span>
+						))}
+					</div>
+				)}
 			</div>
 			{/* <div className="w-full h-[1px] bg-slate-300 my-20"></div> */}
 		</div>

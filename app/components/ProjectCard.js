@@ -17,8 +17,14 @@ export default function ProjectCard({
 				return "bg-purple-100 text-purple-700";
 			case "dev":
 				return "bg-green-100 text-green-700";
+			case "design":
+				return "bg-purple-100 text-purple-700";
+			case "AI":
+				return "bg-blue-100 text-blue-700";
 			case "data viz":
 				return "bg-blue-100 text-blue-700";
+			case "arduino":
+				return "bg-orange-100 text-orange-700";
 			default:
 				return "bg-gray-100 text-gray-700";
 		}
@@ -39,7 +45,7 @@ export default function ProjectCard({
 					{tags.map((tag, index) => (
 						<span
 							key={index}
-							className={`inline-flex items-center rounded-md px-1.5 py-0.5 text-xs font-medium ${getTagStyle(
+							className={`inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ${getTagStyle(
 								tag
 							)}`}
 						>

@@ -3,7 +3,7 @@ export function getProjects() {
 		{
 			title: "Droneforce",
 			subtitle: "Design and Partnership Lab",
-			tags: ["design", "dev", "salesforce", "slack", "skydio", "agentforce"],
+			tags: ["design", "dev", "AI", "emerging tech"],
 			year: "2025",
 			description: "Agentic drone missions for Salesforce Field Service",
 			img: "/images/droneforce/droneforce.png",
@@ -16,7 +16,7 @@ export function getProjects() {
 		{
 			title: "Figgy",
 			subtitle: "Design and Partnership Lab",
-			tags: ["design", "dev", "figma", "next.js", "openAI"],
+			tags: ["design", "dev", "AI", "hackathon"],
 			year: "2025",
 			description: "Context-aware component suggestions in Figma",
 			img: "/images/figgy/figgy.png",
@@ -36,20 +36,7 @@ export function getProjects() {
 		// 	alt: "recollection preview",
 		// 	href: "/projects/recollection",
 		// },
-		{
-			title: "Moodi",
-			subtitle: "Design and Partnership Lab",
-			tags: ["arduino", "learning design", "physical computing", "fabrication"],
-			year: "2024",
-			description:
-				"Exploring the role of neurotransmitters on our emotions through tangible learning",
-			img: "/images/moodi/moodi-4.0(1).jpg",
-			alt: "moodi preview",
-			href: "/projects/moodi",
-			target: "",
-			bgColor: "bg-slate-200",
-			hasShadow: true,
-		},
+
 		// {
 		// 	title: "Feeding Pets of the Homeless",
 		// 	subtitle: "Design and Partnership Lab",
@@ -66,7 +53,7 @@ export function getProjects() {
 		{
 			title: "Careergram",
 			subtitle: "Design and Partnership Lab",
-			tags: ["design", "dev", "next.js", "tailwind", "openAI"],
+			tags: ["design", "dev", "AI", "edtech"],
 			year: "2024",
 			description:
 				"Helping students explore career pathways through AI-assisted self-reflection",
@@ -77,9 +64,23 @@ export function getProjects() {
 			bgColor: "bg-violet-100",
 		},
 		{
+			title: "Moodi",
+			subtitle: "Design and Partnership Lab",
+			tags: ["arduino", "physical computing"],
+			year: "2024",
+			description:
+				"Exploring the role of neurotransmitters on our emotions through tangible learning",
+			img: "/images/moodi/moodi-4.0(1).jpg",
+			alt: "moodi preview",
+			href: "/projects/moodi",
+			target: "",
+			bgColor: "bg-slate-200",
+			hasShadow: true,
+		},
+		{
 			title: "Oloid",
 			subtitle: "Oloid",
-			tags: ["product design", "brand design", "figma"],
+			tags: ["design", "B2B SaaS"],
 			year: "2022",
 			description: "Modernizing physical access and security in the workplace",
 			img: "/images/oloid/oloid-preview.png",
@@ -92,7 +93,7 @@ export function getProjects() {
 		{
 			title: "Edsight",
 			subtitle: "Design and Partnership Lab",
-			tags: ["ux design", "dev"],
+			tags: ["design", "dev", "edtech"],
 			year: "2022",
 			description: "A consistent and accessible design system for Edsight",
 			img: "/images/edsight/edsight-preview.png",
@@ -100,6 +101,19 @@ export function getProjects() {
 			href: "https://medium.com/@mtnguy16/creating-edsight-2-0s-design-system-d0504eee786f",
 			target: "_blank",
 			bgColor: "bg-orange-400",
+			hasShadow: false,
+		},
+		{
+			title: "Playground",
+			subtitle: "Experiments",
+			tags: [],
+			year: "",
+			description: "Experiments and explorations",
+			img: "/images/playground/inspo-shuffle.png",
+			alt: "playground experiments",
+			href: "/playground",
+			target: "",
+			bgColor: "bg-slate-100",
 			hasShadow: false,
 		},
 		// {
