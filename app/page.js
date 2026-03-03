@@ -164,7 +164,7 @@ export default function Home() {
 				isVisible={!!hoveredProject}
 			/>
 			<div className="bg-primary-blue my-8 md:my-16 lg:my-24 mx-4 sm:mx-6 md:mx-12 lg:mx-24 xl:mx-48 relative z-10 rounded-t-2xl">
-				<div className="bg-[#FFFFFF] p-4 sm:p-6 md:p-8 lg:p-12 relative z-10">
+				<div className="bg-[#FFFFFF] p-4 pb-12 sm:p-6 sm:pb-14 md:p-8 md:pb-16 lg:p-12 lg:pb-20 relative z-10">
 					<div className="flex flex-col md:flex-row md:justify-between gap-8 md:gap-0">
 						<div className="w-full md:w-[480px]">
 							<div className="space-y-4">
@@ -186,6 +186,11 @@ export default function Home() {
 									About
 								</button>
 							</Link>
+							<Link href={links.email} target="_blank">
+								<button className="text-sm sm:text-base hover:text-primary-blue transition-transform duration-300 hover:rotate-[5deg]">
+									Email
+								</button>
+							</Link>
 							<Link href={links.linkedin} target="_blank">
 								<button className="text-sm sm:text-base hover:text-primary-blue transition-transform duration-300 hover:rotate-[2.5deg]">
 									LinkedIn
@@ -194,11 +199,6 @@ export default function Home() {
 							<Link href={links.resume} target="_blank">
 								<button className="text-sm sm:text-base hover:text-primary-blue transition-transform duration-300 hover:rotate-[-2.5deg]">
 									Resume
-								</button>
-							</Link>
-							<Link href={links.email} target="_blank">
-								<button className="text-sm sm:text-base hover:text-primary-blue transition-transform duration-300 hover:rotate-[5deg]">
-									Email
 								</button>
 							</Link>
 						</div>

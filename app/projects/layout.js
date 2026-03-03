@@ -8,7 +8,7 @@ export default function Layout({ children }) {
 	return (
 		<ViewTransition>
 			<Nav />
-			<section className="max-w-2xl mx-auto px-8 my-10">
+			<section className="max-w-2xl mx-auto px-8 my-10 pb-16 md:pb-24">
 				<div className="prose prose-lg">{children}</div>
 				<AllProjects />
 			</section>

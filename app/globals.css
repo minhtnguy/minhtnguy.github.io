@@ -10,6 +10,7 @@
 	--font-geist-mono:
 		"GeistMono", "SF Mono", "Monaco", "Inconsolata", "Roboto Mono",
 		"Source Code Pro", "Menlo", "Consolas", "DejaVu Sans Mono", monospace;
+	--footer-height: 15rem;
 }
 
 body {

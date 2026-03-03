@@ -1,9 +1,7 @@
-import { Inter } from "next/font/google";
 import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
 import { Metadata } from "next";
 import "./globals.css";
-const inter = Inter({ subsets: ["latin"] });
+import ConditionalFooter from "./components/ConditionalFooter";
 
 export const metadata = {
 	title: "Minh Nguyen",
@@ -14,7 +12,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en" className={GeistSans.className}>
-			<body>{children}</body>
+			<body className="pb-24">
+				{/* Main content sits on top (z-index 2) so it reveals the footer as you scroll */}
+				<main className="relative z-[2] min-h-screen rounded-b-2xl bg-white">
+					{children}
+				</main>
+				<ConditionalFooter />
+			</body>
 		</html>
 	);
 }
