@@ -1,9 +1,19 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function CursorTooltip({ description, isVisible }) {
 	const [position, setPosition] = useState({ x: 0, y: 0 });
+	const lastMouseRef = useRef({ x: 0, y: 0 });
+
+	// Always track cursor so we have a valid position the moment the tooltip opens
+	useEffect(() => {
+		const updateRef = (e) => {
+			lastMouseRef.current = { x: e.clientX, y: e.clientY };
+		};
+		window.addEventListener("mousemove", updateRef);
+		return () => window.removeEventListener("mousemove", updateRef);
+	}, []);
 
 	useEffect(() => {
 		const updatePosition = (e) => {
@@ -11,6 +21,8 @@ export default function CursorTooltip({ description, isVisible }) {
 		};
 
 		if (isVisible) {
+			// Use current cursor position immediately so we don't flash at (0,0)
+			setPosition(lastMouseRef.current);
 			window.addEventListener("mousemove", updatePosition);
 		}
 

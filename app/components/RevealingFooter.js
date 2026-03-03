@@ -15,7 +15,7 @@ export default function RevealingFooter() {
 			<div className="mx-auto flex min-h-[4rem] max-w-6xl flex-col items-center justify-center gap-4 px-6 py-8 sm:flex-row sm:justify-between sm:gap-8">
 				<div className="text-center sm:text-left">
 					<Link href="/" className="hover:text-white">
-						<p className="text-2xl font-bold text-white/40 hover:text-white hover:rotate-[-3deg] transition-transform duration-300">
+						<p className="text-xl font-bold text-white/40 hover:text-white hover:rotate-[-3deg] transition-transform duration-300">
 							Minh Nguyen
 						</p>
 					</Link>
@@ -28,7 +28,7 @@ export default function RevealingFooter() {
 						href={links.email}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-2xl font-bold text-white/40 hover:text-white hover:rotate-[-2.5deg] transition-transform duration-300"
+						className="text-xl font-bold text-white/40 hover:text-white hover:rotate-[-2.5deg] transition-transform duration-300"
 					>
 						Email
 					</Link>
@@ -36,7 +36,7 @@ export default function RevealingFooter() {
 						href={links.linkedin}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-2xl font-bold text-white/40 hover:text-white hover:rotate-[2.5deg] transition-transform duration-300"
+						className="text-xl font-bold text-white/40 hover:text-white hover:rotate-[2.5deg] transition-transform duration-300"
 					>
 						LinkedIn
 					</Link>
@@ -44,7 +44,7 @@ export default function RevealingFooter() {
 						href={links.resume}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-2xl font-bold text-white/40 hover:text-white hover:rotate-[-2.5deg] transition-transform duration-300"
+						className="text-xl font-bold text-white/40 hover:text-white hover:rotate-[-2.5deg] transition-transform duration-300"
 					>
 						Resume
 					</Link>

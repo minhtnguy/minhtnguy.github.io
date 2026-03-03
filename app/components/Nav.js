@@ -4,24 +4,31 @@ import { links } from "../data/links";
 
 export default function Nav() {
 	return (
-		<nav className="px-16 py-3 flex items-center justify-between sticky top-0 bg-white shadow-sm z-10">
-			<Link href="/">
-				<div className="flex items-center space-x-3">
-					<Logo />
-					<span className="font-medium text-primary-black hover:text-primary-blue transition-transform duration-300 hover:rotate-[-1.5deg] group">
-						Minh Nguyen
-					</span>
-				</div>
-			</Link>
-
-			<div className="flex items-center space-x-12">
-				<Link
-					href="/"
-					className=" text-primary-black hover:text-primary-blue transition-transform duration-300 hover:rotate-[-1.5deg] ease-in-out text-sm"
-				>
-					About
+		<div className="px-4 sm:px-6 sticky top-4 z-10 my-4">
+			<nav className="max-w-5xl mx-auto px-4 sm:px-8 py-3 flex items-center justify-between bg-gradient-to-b from-gray-100/60 to-blue-50/60 border border-gray-200 backdrop-blur-sm rounded-full">
+				<Link href="/">
+					<div className="flex items-center space-x-3">
+						{/* <Logo /> */}
+						<span className=" text-primary-blue text-xl font-medium hover:text-primary-blue transition-transform duration-300 hover:rotate-[-1.5deg] group">
+							Minh Nguyen
+						</span>
+					</div>
 				</Link>
-				<Link
+
+				<div className="flex items-center space-x-12">
+					<Link
+						href="/"
+						className=" text-primary-black text-xl font-medium hover:text-primary-blue transition-transform duration-300 hover:rotate-[-1.5deg] ease-in-out"
+					>
+						Work
+					</Link>
+					<Link
+						href="/about"
+						className=" text-primary-black text-xl font-medium hover:text-primary-blue transition-transform duration-300 hover:rotate-[1.5deg] ease-in-out"
+					>
+						About
+					</Link>
+					{/* <Link
 					href={links.linkedin}
 					target="_blank"
 					className=" text-primary-black hover:text-primary-blue transition-transform duration-300 hover:rotate-[1.5deg] ease-in-out text-sm"
@@ -41,8 +48,9 @@ export default function Nav() {
 					className=" text-primary-black hover:text-primary-blue transition-transform duration-300 hover:rotate-[1.5deg] ease-in-out text-sm"
 				>
 					Email
-				</Link>
-			</div>
-		</nav>
+				</Link> */}
+				</div>
+			</nav>
+		</div>
 	);
 }

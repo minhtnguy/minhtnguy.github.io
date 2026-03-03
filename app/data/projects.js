@@ -69,7 +69,7 @@ export function getProjects() {
 			tags: ["arduino", "physical computing"],
 			year: "2024",
 			description:
-				"Exploring the role of neurotransmitters on our emotions through tangible learning",
+				"Exploring neurotransmitters and emotions with tangible learning",
 			img: "/images/moodi/moodi-4.0(1).jpg",
 			alt: "moodi preview",
 			href: "/projects/moodi",
@@ -95,7 +95,7 @@ export function getProjects() {
 			subtitle: "Design and Partnership Lab",
 			tags: ["design", "dev", "edtech"],
 			year: "2022",
-			description: "A consistent and accessible design system for Edsight",
+			description: "Design system for Edsight 2.0",
 			img: "/images/edsight/edsight-preview.png",
 			alt: "Screenshots of Edsight's design systems",
 			href: "https://medium.com/@mtnguy16/creating-edsight-2-0s-design-system-d0504eee786f",
