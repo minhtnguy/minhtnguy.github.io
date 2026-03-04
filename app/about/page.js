@@ -30,7 +30,7 @@ export default function About() {
 					<div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:space-x-8 sm:pb-8 text-primary-black">
 						<Link
 							href={links.email}
-							className="text-zinc-400 hover:text-primary-blue transition-transform duration-300 hover:rotate-[5deg]"
+							className="text-zinc-400 hover:text-primary-blue transition-transform duration-300 hover:rotate-[-5deg]"
 						>
 							Email
 						</Link>
@@ -51,7 +51,7 @@ export default function About() {
 						<Link
 							href={links.github}
 							target="_blank"
-							className="text-zinc-400 hover:text-primary-blue transition-transform duration-300 hover:rotate-[-5deg]"
+							className="text-zinc-400 hover:text-primary-blue transition-transform duration-300 hover:rotate-[5deg]"
 						>
 							GitHub
 						</Link>

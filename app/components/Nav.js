@@ -5,7 +5,7 @@ import { links } from "../data/links";
 export default function Nav() {
 	return (
 		<div className="px-4 sm:px-6 sticky top-4 z-10 my-4">
-			<nav className="max-w-5xl mx-auto px-4 sm:px-8 py-3 flex items-center justify-between bg-gradient-to-b from-gray-100/60 to-blue-50/60 border border-gray-200 backdrop-blur-sm rounded-full">
+			<nav className="max-w-5xl mx-auto px-4 sm:px-8 py-3 flex items-center justify-between bg-gradient-to-b from-gray-100/60 to-gray-50/60 border border-gray-200 backdrop-blur-sm rounded-full">
 				<Link href="/">
 					<div className="flex items-center space-x-3">
 						{/* <Logo /> */}
