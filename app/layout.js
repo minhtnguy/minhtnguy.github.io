@@ -1,5 +1,6 @@
 import { GeistSans } from "geist/font/sans";
 import { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import ConditionalFooter from "./components/ConditionalFooter";
 
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
 					{children}
 				</main>
 				<ConditionalFooter />
+				<Analytics />
 			</body>
 		</html>
 	);
