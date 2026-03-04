@@ -92,6 +92,20 @@ export default function Playground() {
 	const hasInitialCamera = useRef(false);
 	const [isInitialized, setIsInitialized] = useState(false);
 	const [modalSlug, setModalSlug] = useState(null);
+	const drawerContentRef = useRef(null);
+	// Track tap on image cell so we can open drawer on pointerup (click often doesn't fire due to touch-none)
+	const pendingTapRef = useRef(null);
+
+	// Move focus into the drawer when it opens so aria-hidden on main is valid
+	useEffect(() => {
+		if (!modalSlug) return;
+		const id = requestAnimationFrame(() => {
+			requestAnimationFrame(() => {
+				drawerContentRef.current?.focus?.();
+			});
+		});
+		return () => cancelAnimationFrame(id);
+	}, [modalSlug]);
 
 	// Measure viewport and center hint on first real size
 	useEffect(() => {
@@ -121,34 +135,69 @@ export default function Playground() {
 		return () => ro.disconnect();
 	}, []);
 
-	// Pan: map screen delta to virtual delta (divide by zoom). Don't start pan when clicking an image cell.
-	const handlePointerDown = useCallback(
-		(e) => {
-			if (e.target.closest("[data-playground-image-cell]")) return;
-			e.preventDefault();
-			setIsPanning(true);
-			panStartRef.current = {
-				clientX: e.clientX,
-				clientY: e.clientY,
-				cameraX: camera.x,
-				cameraY: camera.y,
-			};
-		},
-		[camera.x, camera.y],
-	);
+	// Pan: map screen delta to virtual delta (divide by zoom). Don't start pan when tapping an image cell.
+	const handlePointerDown = useCallback((e) => {
+		const cell = e.target.closest("[data-playground-image-cell]");
+		if (cell) {
+			const slug = cell.dataset.playgroundSlug;
+			if (slug) pendingTapRef.current = { slug, didPan: false, startX: e.clientX, startY: e.clientY };
+			return;
+		}
+		e.preventDefault();
+		pendingTapRef.current = null;
+		setIsPanning(true);
+		panStartRef.current = {
+			clientX: e.clientX,
+			clientY: e.clientY,
+			cameraX: camera.x,
+			cameraY: camera.y,
+		};
+	}, [camera.x, camera.y]);
 
+	const openDrawerForSlug = useCallback((slug) => {
+		if (!slug || !playgroundDescriptions[slug]) return;
+		if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
+		setModalSlug(slug);
+	}, []);
+
+	const handleCellPointerDown = useCallback((e, slug) => {
+		e.stopPropagation();
+		pendingTapRef.current = { slug, didPan: false, startX: e.clientX, startY: e.clientY };
+	}, []);
+
+	const handleCellPointerUp = useCallback((e, slug) => {
+		const pending = pendingTapRef.current;
+		pendingTapRef.current = null;
+		if (pending && pending.slug === slug && !pending.didPan) {
+			openDrawerForSlug(slug);
+		}
+	}, [openDrawerForSlug]);
+
+	const TAP_SLOP = 10;
 	const handlePointerMove = useCallback(
 		(e) => {
-			if (!isPanning) return;
-			const { clientX, clientY, cameraX, cameraY } = panStartRef.current;
-			const dx = (e.clientX - clientX) / camera.zoom;
-			const dy = (e.clientY - clientY) / camera.zoom;
-			setCamera((c) => ({ ...c, x: cameraX - dx, y: cameraY - dy }));
+			const pending = pendingTapRef.current;
+			if (pending) {
+				const dist = Math.hypot(e.clientX - pending.startX, e.clientY - pending.startY);
+				if (dist > TAP_SLOP) pending.didPan = true;
+			}
+			if (isPanning) {
+				const { clientX, clientY, cameraX, cameraY } = panStartRef.current;
+				const dx = (e.clientX - clientX) / camera.zoom;
+				const dy = (e.clientY - clientY) / camera.zoom;
+				setCamera((c) => ({ ...c, x: cameraX - dx, y: cameraY - dy }));
+			}
 		},
 		[isPanning, camera.zoom],
 	);
 
 	const handlePointerUp = useCallback(() => {
+		const pending = pendingTapRef.current;
+		pendingTapRef.current = null;
+		if (pending && !pending.didPan && pending.slug && playgroundDescriptions[pending.slug]) {
+			if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
+			setModalSlug(pending.slug);
+		}
 		setIsPanning(false);
 	}, []);
 
@@ -248,14 +297,14 @@ export default function Playground() {
 										height: CELL_SIZE - 48,
 									}}
 								>
-									{!isOrigin && (
+									{!isOrigin && DescriptionComponent && (
 										<button
 											type="button"
 											data-playground-image-cell
+											data-playground-slug={item.slug}
 											className="flex w-full h-full min-w-0 min-h-0 max-w-full max-h-full items-center justify-center cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:ring-offset-2 rounded"
-											onClick={() =>
-												DescriptionComponent && setModalSlug(item.slug)
-											}
+											onPointerDown={(e) => handleCellPointerDown(e, item.slug)}
+											onPointerUp={(e) => handleCellPointerUp(e, item.slug)}
 										>
 											<Image
 												src={item.src}
@@ -291,17 +340,28 @@ export default function Playground() {
 				onOpenChange={(open) => {
 					if (!open) setModalSlug(null);
 				}}
+				modal={false}
 			>
 				<Drawer.Portal>
+					{/* Custom backdrop when modal={false} (vaul Overlay is null); avoids aria-hidden on main */}
+					{modalSlug && (
+						<div
+							className="fixed inset-0 bg-black/50 cursor-pointer z-[100]"
+							aria-hidden="true"
+							onClick={() => setModalSlug(null)}
+						/>
+					)}
 					<Drawer.Overlay
 						className="fixed inset-0 bg-black/50 cursor-pointer"
 						onClick={() => setModalSlug(null)}
 					/>
 					<Drawer.Content
-						className="fixed bottom-0 left-0 right-0 outline-none h-[95vh] flex justify-center cursor-pointer"
+						ref={drawerContentRef}
+						className="fixed bottom-0 left-0 right-0 outline-none h-[95vh] flex justify-center cursor-pointer z-[101]"
 						onClick={(e) => {
 							if (!e.target.closest("[data-drawer-panel]")) setModalSlug(null);
 						}}
+						tabIndex={-1}
 					>
 						<div
 							data-drawer-panel
