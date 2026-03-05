@@ -63,6 +63,7 @@ export default function Home() {
 				height: 375,
 				width: 500,
 				className: "object-cover rounded-sm w-full h-full",
+				unoptimized: true,
 			},
 			containerClass:
 				"flex items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12 overflow-hidden",
