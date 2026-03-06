@@ -18,8 +18,8 @@ export default function ExpandableWeek({
 					</button>
 				</Drawer.Trigger>
 				<Drawer.Portal>
-					<Drawer.Overlay className="fixed inset-0 bg-black/40" />
-					<Drawer.Content className="bg-white h-[90vh] flex flex-col fixed bottom-0 left-0 right-0 outline-none rounded-t-[10px]">
+					<Drawer.Overlay className="fixed inset-0 z-[50] bg-black/40" />
+					<Drawer.Content className="bg-white h-[95vh] flex flex-col fixed bottom-0 left-0 right-0 z-[50] outline-none rounded-t-[10px]">
 						<div className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-gray-300 mt-3" />
 						<div className="overflow-y-auto flex-1 p-6 pt-2 pb-8">
 							<div className="max-w-2xl mx-auto space-y-4">
