@@ -1,33 +1,27 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function ViewTransition({
 	children,
-	initial = { opacity: 0, y: 20 },
-	animate = { opacity: 1, y: 0 },
+	initial = { y: 16 },
+	animate = { y: 0 },
 	exit = { opacity: 0, y: 0 },
-	transition = { duration: 0.5 },
+	transition = { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] },
 	className = "",
 }) {
+	const reducedMotion = useReducedMotion();
+
 	return (
 		<motion.div
-			initial={initial}
+			initial={reducedMotion ? false : initial}
 			animate={animate}
-			exit={exit}
+			exit={reducedMotion ? false : exit}
 			transition={transition}
+			className={className}
 			suppressHydrationWarning
 		>
-			<div className={className} suppressHydrationWarning>
-				<motion.div
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ delay: 0.2, duration: 0.5 }}
-					suppressHydrationWarning
-				>
-					{children}
-				</motion.div>
-			</div>
+			{children}
 		</motion.div>
 	);
 }
