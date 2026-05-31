@@ -8,9 +8,6 @@ export const metadata = {
 	title: "Minh Nguyen",
 	description: "Minh Nguyen's portfolio",
 	metadataBase: new URL("https://minhtnguyen.me"),
-	icons: {
-		icon: "/favicon.ico",
-	},
 };
 
 export default function RootLayout({ children }) {
