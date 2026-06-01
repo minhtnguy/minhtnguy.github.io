@@ -209,23 +209,13 @@ export default function StickerStack() {
 					className="pointer-events-none absolute inset-0 z-0 flex origin-center items-center justify-center px-8 sm:px-12 md:px-36 py-12"
 					style={{ opacity: textOpacity, scale: textScale }}
 				>
-					<div className="flex max-w-sm flex-col items-center text-center">
-						<h1
-							className={cn(
-								"font-medium text-primary-blue",
-								FONT_SIZE.heroTitle,
-							)}
-						>
+					<div className="flex max-w-md flex-col items-center text-center">
+						<h1 className={cn("font-medium text-primary-blue text-4xl")}>
 							Minh Nguyen
 						</h1>
-						<p
-							className={cn(
-								"mt-4 leading-relaxed text-black",
-								FONT_SIZE.heroBody,
-							)}
-						>
-							is a designer / creative technologist <br /> who works across
-							design, code, and AI to bring ideas to life.
+						<p className={cn("mt-4 leading-relaxed text-black text-lg")}>
+							is a designer / creative technologist who works across design,
+							code, and AI to bring ideas to life.
 						</p>
 					</div>
 				</motion.div>
