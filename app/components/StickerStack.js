@@ -40,7 +40,7 @@ const stickers = [
 		width: 800,
 		height: 800,
 		zIndex: "z-30",
-		endPosition: { left: "0%", top: "100%", x: "150%", y: "-150%" },
+		endPosition: { left: "0%", top: "100%", x: "120%", y: "-150%" },
 		endRotate: 3,
 		endScale: 1.2,
 		hoverRotate: -5,
@@ -62,7 +62,7 @@ const stickers = [
 		width: 512,
 		height: 323,
 		zIndex: "z-10",
-		endPosition: { left: "100%", top: "100%", x: "-150%", y: "-150%" },
+		endPosition: { left: "100%", top: "100%", x: "-180%", y: "-150%" },
 		endRotate: 1,
 		endScale: 0.95,
 		sizeClass:
