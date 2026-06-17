@@ -1,7 +1,7 @@
 "use client";
 
 import StickerStack from "./components/StickerStack";
-import ProjectGrid from "./components/ProjectGrid";
+import ProjectPanelGrid from "./components/ProjectPanelGrid";
 import ViewTransition from "@/app/components/ViewTransition";
 
 export default function Home() {
@@ -9,7 +9,9 @@ export default function Home() {
 		<ViewTransition>
 			<div className="bg-[#FFFFFF] relative z-10 overflow-visible">
 				<StickerStack />
-				<ProjectGrid />
+				<section aria-label="Projects">
+					<ProjectPanelGrid />
+				</section>
 			</div>
 		</ViewTransition>
 	);

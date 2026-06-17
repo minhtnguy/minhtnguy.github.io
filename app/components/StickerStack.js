@@ -8,7 +8,7 @@ import {
 	useScroll,
 	useTransform,
 } from "framer-motion";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "@/utils/cn";
 
 const stickerSize =
@@ -30,8 +30,10 @@ const stickers = [
 		height: 671,
 		zIndex: "z-40",
 		endPosition: { left: "0%", top: "0%", x: "20%", y: "10%" },
+		mobileEndPosition: { x: "-10%", y: "45%" },
 		endRotate: -8,
 		endScale: 0.65,
+		mobileEndScale: 0.5,
 		hoverRotate: 6,
 	},
 	{
@@ -40,9 +42,11 @@ const stickers = [
 		width: 800,
 		height: 800,
 		zIndex: "z-30",
-		endPosition: { left: "0%", top: "100%", x: "120%", y: "-150%" },
+		endPosition: { left: "0%", top: "100%", x: "150%", y: "-150%" },
+		mobileEndPosition: { x: "25%", y: "-170%" },
 		endRotate: 3,
 		endScale: 1.2,
+		mobileEndScale: 0.7,
 		hoverRotate: -5,
 	},
 	{
@@ -52,8 +56,10 @@ const stickers = [
 		height: 900,
 		zIndex: "z-20",
 		endPosition: { left: "100%", top: "0%", x: "-140%", y: "10%" },
+		mobileEndPosition: { x: "-95%", y: "40%" },
 		endRotate: -6,
 		endScale: 0.6,
+		mobileEndScale: 0.45,
 		hoverRotate: 7,
 	},
 	{
@@ -63,11 +69,14 @@ const stickers = [
 		height: 323,
 		zIndex: "z-10",
 		endPosition: { left: "100%", top: "100%", x: "-180%", y: "-150%" },
+		mobileEndPosition: { x: "-105%", y: "-175%" },
 		endRotate: 1,
 		endScale: 0.95,
+		mobileEndScale: 0.5,
 		sizeClass:
-			"w-auto h-auto max-w-[360px] max-h-[230px] sm:max-w-[460px] sm:max-h-[290px] md:max-w-[560px] md:max-h-[350px] object-contain",
+			"w-auto h-auto max-w-[230px] max-h-[150px] sm:max-w-[460px] sm:max-h-[290px] md:max-w-[560px] md:max-h-[350px] object-contain",
 		startScale: 1.5,
+		mobileStartScale: 1.2,
 		hoverRotate: -4,
 	},
 ];
@@ -75,45 +84,78 @@ const stickers = [
 const SCROLL_HEIGHT = "350vh";
 const ANIMATION_END = 0.65;
 const CORNER_THRESHOLD = 0.98;
+const SCROLL_INDICATOR_DELAY_MS = 1000;
+const SCROLL_INDICATOR_ENTER_MS = 0.85;
+const SCROLL_INDICATOR_EASE_OUT = [0.23, 1, 0.32, 1];
+const MOBILE_MAX_WIDTH = 639;
+
+function useIsMobile() {
+	const [isMobile, setIsMobile] = useState(false);
+
+	useEffect(() => {
+		const mediaQuery = window.matchMedia(
+			`(max-width: ${MOBILE_MAX_WIDTH}px)`,
+		);
+		const onChange = (event) => setIsMobile(event.matches);
+
+		onChange(mediaQuery);
+		mediaQuery.addEventListener("change", onChange);
+
+		return () => mediaQuery.removeEventListener("change", onChange);
+	}, []);
+
+	return isMobile;
+}
 
 function AnimatedSticker({
 	sticker,
 	animationProgress,
 	reducedMotion,
 	cornersReady,
+	isMobile,
 }) {
 	const start = { left: "50%", top: "50%", x: "-50%", y: "-50%" };
+	const endPosition =
+		isMobile && sticker.mobileEndPosition
+			? { ...sticker.endPosition, ...sticker.mobileEndPosition }
+			: sticker.endPosition;
 
 	const left = useTransform(
 		animationProgress,
 		[0, 1],
 		reducedMotion
-			? [sticker.endPosition.left, sticker.endPosition.left]
-			: [start.left, sticker.endPosition.left],
+			? [endPosition.left, endPosition.left]
+			: [start.left, endPosition.left],
 	);
 	const top = useTransform(
 		animationProgress,
 		[0, 1],
 		reducedMotion
-			? [sticker.endPosition.top, sticker.endPosition.top]
-			: [start.top, sticker.endPosition.top],
+			? [endPosition.top, endPosition.top]
+			: [start.top, endPosition.top],
 	);
 	const x = useTransform(
 		animationProgress,
 		[0, 1],
 		reducedMotion
-			? [sticker.endPosition.x, sticker.endPosition.x]
-			: [start.x, sticker.endPosition.x],
+			? [endPosition.x, endPosition.x]
+			: [start.x, endPosition.x],
 	);
 	const y = useTransform(
 		animationProgress,
 		[0, 1],
 		reducedMotion
-			? [sticker.endPosition.y, sticker.endPosition.y]
-			: [start.y, sticker.endPosition.y],
+			? [endPosition.y, endPosition.y]
+			: [start.y, endPosition.y],
 	);
-	const endScale = sticker.endScale ?? 0.55;
-	const startScale = sticker.startScale ?? 1;
+	const endScale =
+		isMobile && sticker.mobileEndScale != null
+			? sticker.mobileEndScale
+			: (sticker.endScale ?? 0.55);
+	const startScale =
+		isMobile && sticker.mobileStartScale != null
+			? sticker.mobileStartScale
+			: (sticker.startScale ?? 1);
 	const scale = useTransform(
 		animationProgress,
 		[0, 1],
@@ -170,7 +212,10 @@ function AnimatedSticker({
 export default function StickerStack() {
 	const containerRef = useRef(null);
 	const reducedMotion = useReducedMotion();
+	const isMobile = useIsMobile();
 	const [cornersReady, setCornersReady] = useState(!!reducedMotion);
+	const [scrollIndicatorReady, setScrollIndicatorReady] = useState(false);
+	const [isAtScrollTop, setIsAtScrollTop] = useState(true);
 
 	const { scrollYProgress } = useScroll({
 		target: containerRef,
@@ -186,6 +231,23 @@ export default function StickerStack() {
 	useMotionValueEvent(animationProgress, "change", (latest) => {
 		setCornersReady(latest >= CORNER_THRESHOLD);
 	});
+
+	useMotionValueEvent(scrollYProgress, "change", (latest) => {
+		setIsAtScrollTop(latest <= 0.06);
+	});
+
+	useEffect(() => {
+		if (reducedMotion) return;
+
+		const timer = setTimeout(() => {
+			setScrollIndicatorReady(true);
+		}, SCROLL_INDICATOR_DELAY_MS);
+
+		return () => clearTimeout(timer);
+	}, [reducedMotion]);
+
+	const showScrollIndicator =
+		scrollIndicatorReady && isAtScrollTop && !reducedMotion;
 
 	const textOpacity = useTransform(
 		animationProgress,
@@ -209,11 +271,19 @@ export default function StickerStack() {
 					className="pointer-events-none absolute inset-0 z-0 flex origin-center items-center justify-center px-8 sm:px-12 md:px-36 py-12"
 					style={{ opacity: textOpacity, scale: textScale }}
 				>
-					<div className="flex max-w-md flex-col items-center text-center">
-						<h1 className={cn("font-medium text-primary-blue text-4xl")}>
+					<div className="flex max-w-md sm:max-w-lg flex-col items-center text-center">
+						<h1
+							className={cn(
+								"font-medium text-primary-blue text-5xl sm:text-5xl md:text-6xl",
+							)}
+						>
 							Minh Nguyen
 						</h1>
-						<p className={cn("mt-4 leading-relaxed text-black text-lg")}>
+						<p
+							className={cn(
+								"mt-4 sm:mt-6 leading-relaxed text-black text-base sm:text-base md:text-xl font-light",
+							)}
+						>
 							is a designer / creative technologist who works across design,
 							code, and AI to bring ideas to life.
 						</p>
@@ -228,9 +298,57 @@ export default function StickerStack() {
 							animationProgress={animationProgress}
 							reducedMotion={reducedMotion}
 							cornersReady={cornersReady}
+							isMobile={isMobile}
 						/>
 					))}
 				</div>
+
+				<motion.div
+					aria-hidden="true"
+					className="pointer-events-none absolute inset-x-0 bottom-8 z-20 flex flex-col items-center gap-1 text-gray-400"
+					initial={{ opacity: 0, y: 12 }}
+					animate={
+						showScrollIndicator
+							? { opacity: 1, y: 0 }
+							: { opacity: 0, y: 12 }
+					}
+					transition={{
+						duration: showScrollIndicator
+							? SCROLL_INDICATOR_ENTER_MS
+							: 0.25,
+						ease: showScrollIndicator
+							? SCROLL_INDICATOR_EASE_OUT
+							: [0.455, 0.03, 0.515, 0.955],
+					}}
+				>
+					<span className="text-xs font-medium uppercase tracking-[0.2em]">
+						Scroll
+					</span>
+					<motion.svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="20"
+						height="20"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						strokeWidth="1.75"
+						strokeLinecap="round"
+						strokeLinejoin="round"
+						animate={reducedMotion ? undefined : { y: [0, 5, 0] }}
+						transition={
+							reducedMotion
+								? undefined
+								: {
+										duration: 1.4,
+										repeat: Infinity,
+										ease: [0.455, 0.03, 0.515, 0.955],
+									}
+						}
+					>
+						<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+						<path d="M6 9l6 6l6 -6" />
+					</motion.svg>
+				</motion.div>
 			</div>
 		</div>
 	);
