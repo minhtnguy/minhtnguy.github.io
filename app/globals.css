@@ -10,11 +10,21 @@
 	--font-geist-mono:
 		"GeistMono", "SF Mono", "Monaco", "Inconsolata", "Roboto Mono",
 		"Source Code Pro", "Menlo", "Consolas", "DejaVu Sans Mono", monospace;
-	--footer-height: 28rem;
+	--footer-height: 0px;
+}
+
+html {
+	background-color: #ffffff;
+	overscroll-behavior-y: none;
 }
 
 body {
 	font-family: var(--font-geist-sans);
+}
+
+main {
+	margin-bottom: var(--footer-height);
+	display: flow-root;
 }
 
 .dot-grid-bg {

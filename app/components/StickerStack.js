@@ -268,10 +268,10 @@ export default function StickerStack() {
 					<div className="flex max-w-md sm:max-w-lg flex-col items-center text-center">
 						<h1
 							className={cn(
-								"font-medium text-primary-blue text-5xl sm:text-5xl md:text-6xl",
+								"font-medium text-primary-blue text-3xl sm:text-4xl md:text-4xl tracking-[.25em]",
 							)}
 						>
-							Minh Nguyen
+							MINH NGUYEN
 						</h1>
 						<p
 							className={cn(

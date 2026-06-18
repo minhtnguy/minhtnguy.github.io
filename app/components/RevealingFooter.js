@@ -4,7 +4,7 @@ import { clockCursor } from "cursor-effects";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { links } from "../data/links";
 
 const footerLinks = [
@@ -19,6 +19,29 @@ const footerLinks = [
 export default function RevealingFooter() {
 	const footerRef = useRef(null);
 	const reducedMotion = useReducedMotion();
+
+	useLayoutEffect(() => {
+		const footer = footerRef.current;
+		if (!footer) return;
+
+		const syncFooterHeight = () => {
+			const height = Math.round(footer.getBoundingClientRect().height);
+			document.documentElement.style.setProperty(
+				"--footer-height",
+				`${height}px`,
+			);
+		};
+
+		syncFooterHeight();
+
+		const resizeObserver = new ResizeObserver(syncFooterHeight);
+		resizeObserver.observe(footer);
+
+		return () => {
+			resizeObserver.disconnect();
+			document.documentElement.style.setProperty("--footer-height", "0px");
+		};
+	}, []);
 
 	useEffect(() => {
 		const footer = footerRef.current;
