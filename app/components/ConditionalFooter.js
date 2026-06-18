@@ -9,7 +9,9 @@ export default function ConditionalFooter() {
 	const isPlayground = pathname === "/playground";
 
 	useEffect(() => {
-		document.body.style.paddingBottom = isPlayground ? "0" : "";
+		document.body.style.paddingBottom = isPlayground
+			? "0"
+			: "var(--footer-height)";
 		return () => {
 			document.body.style.paddingBottom = "";
 		};

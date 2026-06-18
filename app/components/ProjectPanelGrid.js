@@ -102,7 +102,7 @@ const projects = [
 	{
 		id: "edsight",
 		type: "image",
-		src: "/images/edsight/edsight-preview.svg",
+		src: "/images/edsight/edsight-preview.png",
 		alt: "Edsight design system preview",
 		title: "Edsight — Design System for Edsight 2.0",
 		tags: ["design", "dev", "edtech"],
@@ -111,10 +111,10 @@ const projects = [
 		fit: "contain",
 		padding: false,
 		imageClass:
-			"scale-[1.35] object-contain object-[100%_75%] translate-x-[20%]",
+			"scale-[1.32] object-contain object-[100%_70%] translate-x-[20%]",
 		span: "md:col-span-1 md:col-start-2 md:row-start-3",
 		hoverReveal: {
-			color: "#A92B2D",
+			color: "#B52D48",
 			name: "Edsight",
 			categories: "EdTech, UX Design",
 			description:
@@ -412,7 +412,7 @@ function GridCard({ project }) {
 
 export default function ProjectPanelGrid() {
 	return (
-		<div className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-24">
+		<div className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-28">
 			<div className="grid grid-cols-1 gap-3 md:grid-cols-3 md:items-stretch md:gap-4">
 				{projects.map((project) => (
 					<GridCard key={project.id} project={project} />

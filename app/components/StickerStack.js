@@ -84,7 +84,7 @@ const stickers = [
 const SCROLL_HEIGHT = "350vh";
 const ANIMATION_END = 0.65;
 const CORNER_THRESHOLD = 0.98;
-const SCROLL_INDICATOR_DELAY_MS = 1000;
+const SCROLL_INDICATOR_DELAY_MS = 1200;
 const SCROLL_INDICATOR_ENTER_MS = 0.85;
 const SCROLL_INDICATOR_EASE_OUT = [0.23, 1, 0.32, 1];
 const MOBILE_MAX_WIDTH = 639;
@@ -93,9 +93,7 @@ function useIsMobile() {
 	const [isMobile, setIsMobile] = useState(false);
 
 	useEffect(() => {
-		const mediaQuery = window.matchMedia(
-			`(max-width: ${MOBILE_MAX_WIDTH}px)`,
-		);
+		const mediaQuery = window.matchMedia(`(max-width: ${MOBILE_MAX_WIDTH}px)`);
 		const onChange = (event) => setIsMobile(event.matches);
 
 		onChange(mediaQuery);
@@ -137,16 +135,12 @@ function AnimatedSticker({
 	const x = useTransform(
 		animationProgress,
 		[0, 1],
-		reducedMotion
-			? [endPosition.x, endPosition.x]
-			: [start.x, endPosition.x],
+		reducedMotion ? [endPosition.x, endPosition.x] : [start.x, endPosition.x],
 	);
 	const y = useTransform(
 		animationProgress,
 		[0, 1],
-		reducedMotion
-			? [endPosition.y, endPosition.y]
-			: [start.y, endPosition.y],
+		reducedMotion ? [endPosition.y, endPosition.y] : [start.y, endPosition.y],
 	);
 	const endScale =
 		isMobile && sticker.mobileEndScale != null
@@ -308,20 +302,16 @@ export default function StickerStack() {
 					className="pointer-events-none absolute inset-x-0 bottom-8 z-20 flex flex-col items-center gap-1 text-gray-400"
 					initial={{ opacity: 0, y: 12 }}
 					animate={
-						showScrollIndicator
-							? { opacity: 1, y: 0 }
-							: { opacity: 0, y: 12 }
+						showScrollIndicator ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }
 					}
 					transition={{
-						duration: showScrollIndicator
-							? SCROLL_INDICATOR_ENTER_MS
-							: 0.25,
+						duration: showScrollIndicator ? SCROLL_INDICATOR_ENTER_MS : 0.25,
 						ease: showScrollIndicator
 							? SCROLL_INDICATOR_EASE_OUT
 							: [0.455, 0.03, 0.515, 0.955],
 					}}
 				>
-					<span className="text-xs font-medium uppercase tracking-[0.2em]">
+					<span className="text-xs font-light uppercase tracking-[0.2em]">
 						Scroll
 					</span>
 					<motion.svg
@@ -331,7 +321,7 @@ export default function StickerStack() {
 						viewBox="0 0 24 24"
 						fill="none"
 						stroke="currentColor"
-						strokeWidth="1.75"
+						strokeWidth="1.25"
 						strokeLinecap="round"
 						strokeLinejoin="round"
 						animate={reducedMotion ? undefined : { y: [0, 5, 0] }}

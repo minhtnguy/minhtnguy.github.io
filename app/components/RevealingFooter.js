@@ -1,54 +1,92 @@
+"use client";
+
+import { clockCursor } from "cursor-effects";
+import { motion, useReducedMotion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 import { links } from "../data/links";
 
+const footerLinks = [
+	{ label: "LinkedIn", href: links.linkedin, external: true },
+	{ label: "Email", href: links.email, external: false },
+	{ label: "Resume", href: links.resume, external: true },
+];
+
 /**
- * Revealing Footer Effect: fixed at bottom with z-index below main content.
- * As the user scrolls, the main content (with higher z-index) scrolls up
- * and "reveals" this footer underneath.
+ * Revealing footer: fixed beneath main content and uncovered as the page scrolls.
  */
 export default function RevealingFooter() {
+	const footerRef = useRef(null);
+	const reducedMotion = useReducedMotion();
+
+	useEffect(() => {
+		const footer = footerRef.current;
+		if (!footer) return;
+
+		const effect = clockCursor({
+			element: footer,
+			zIndex: "0",
+			dateColor: "#737373",
+			faceColor: "#404040",
+			secondsColor: "#ef4444",
+			minutesColor: "#525252",
+			hoursColor: "#525252",
+		});
+
+		return () => effect.destroy();
+	}, []);
+
 	return (
 		<footer
-			className="revealing-footer fixed bottom-0 left-0 z-[1] w-full bg-primary-blue text-white"
+			ref={footerRef}
+			className="revealing-footer fixed bottom-0 left-0 z-[1] w-full bg-neutral-100"
 			aria-label="Site footer"
 		>
-			<div className="mx-auto flex min-h-[4rem] max-w-6xl flex-col items-center justify-center gap-4 px-6 py-8 sm:flex-row sm:justify-between sm:gap-8">
-				<div className="text-center sm:text-left">
-					<Link href="/" className="hover:text-white">
-						<p className="text-xl font-bold text-white/40 hover:text-white hover:rotate-[-3deg] transition-transform duration-300">
-							Minh Nguyen
-						</p>
-					</Link>
-				</div>
-				<nav
-					className="flex flex-wrap gap-6 sm:gap-12"
-					aria-label="Footer links"
+			<div className="relative z-[1] mx-auto flex max-w-xl flex-col items-center px-6 pb-20 pt-32 sm:pb-28 sm:pt-40">
+				<motion.div
+					className="relative inline-block w-full max-w-[100px] origin-center drop-shadow-[0_2px_8px_rgba(0,0,0,0.12)] sm:max-w-[120px]"
+					whileHover={reducedMotion ? undefined : { scale: 1.08 }}
+					transition={{ duration: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
 				>
-					<Link
-						href={links.email}
-						target="_blank"
-						rel="noopener noreferrer"
-						className="text-xl font-bold text-white/40 hover:text-white hover:rotate-[-2.5deg] transition-transform duration-300"
-					>
-						Email
-					</Link>
-					<Link
-						href={links.linkedin}
-						target="_blank"
-						rel="noopener noreferrer"
-						className="text-xl font-bold text-white/40 hover:text-white hover:rotate-[2.5deg] transition-transform duration-300"
-					>
-						LinkedIn
-					</Link>
-					<Link
-						href={links.resume}
-						target="_blank"
-						rel="noopener noreferrer"
-						className="text-xl font-bold text-white/40 hover:text-white hover:rotate-[-2.5deg] transition-transform duration-300"
-					>
-						Resume
-					</Link>
+					<Image
+						src="/images/stickers/OnMyLaptop.png"
+						alt="Minh Nguyen peeking over a laptop covered in stickers"
+						width={900}
+						height={732}
+						className="h-auto w-full"
+					/>
+				</motion.div>
+
+				<nav className="mt-8 sm:mt-10" aria-label="Footer links">
+					<ul className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm font-light text-neutral-500 sm:text-base">
+						{footerLinks.map((link, index) => (
+							<li key={link.label} className="flex items-center gap-3">
+								{index > 0 ? (
+									<span aria-hidden="true" className="text-neutral-300">
+										|
+									</span>
+								) : null}
+								<Link
+									href={link.href}
+									{...(link.external
+										? {
+												target: "_blank",
+												rel: "noopener noreferrer",
+											}
+										: {})}
+									className="transition-colors hover:text-neutral-700"
+								>
+									{link.label}
+								</Link>
+							</li>
+						))}
+					</ul>
 				</nav>
+
+				<p className="mt-4 text-xs font-light text-neutral-400 sm:text-sm">
+					Last updated June 2026
+				</p>
 			</div>
 		</footer>
 	);
