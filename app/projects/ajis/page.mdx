@@ -1,0 +1,59 @@
+import Image from "next/image";
+import ProjectTags from "@/app/components/mdx-components/ProjectTags";
+import Overview from "@/app/components/mdx-components/Overview";
+import AjisVideo, { ajisFigureClassName, ajisMediaClassName } from "./AjisVideo";
+
+export const metadata = {
+    title: "AJIS",
+    description: "Case study for AJIS",
+};
+
+# American Journal of Irish Studies
+
+An academic journal website for Irish and Irish-American culture, history, and literature.
+
+<ProjectTags />
+
+<figure className={ajisFigureClassName}>
+	<div className={ajisMediaClassName}>
+		<Image
+			src="/images/ajis/ajis.png"
+			alt="American Journal of Irish Studies website cover"
+			width={1000}
+			height={500}
+			unoptimized
+			className="w-full"
+		/>
+	</div>
+</figure>
+
+<Overview
+	role={["Design Engineer"]}
+	timeline="May 2025 - May 2026"
+	team={["Sole Design Engineer"]}
+/>
+
+## Overview
+
+I designed and developed an academic journal website for the American Journal of Irish Studies (AJIS), creating a more engaging way to browse Irish and Irish-American publications through scroll-based interactions, article layouts, and clearer editorial structure. Launching Fall 2026!
+
+<AjisVideo src="/images/ajis/ajis-scrolly.mp4" />
+<AjisVideo src="/images/ajis/ajis-article.mov" />
+
+<AjisVideo src="/images/ajis/ajis-image.mov" />
+
+<AjisVideo src="/images/ajis/ajis-volume.mov" />
+
+
+<figure className={ajisFigureClassName}>
+	<div className={ajisMediaClassName}>
+		<Image
+			src="/images/ajis/ajis-submission.png"
+			alt="American Journal of Irish Studies submissions"
+			width={1000}
+			height={500}
+			unoptimized
+			className="w-full"
+		/>
+	</div>
+</figure>

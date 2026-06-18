@@ -28,6 +28,8 @@ module.exports = {
 			},
 			boxShadow: {
 				blue: "0 4px 14px 0 rgba(255, 0, 0, 0.1)",
+				large:
+					"0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)",
 			},
 			animation: {
 				first: "moveVertical 30s ease infinite",

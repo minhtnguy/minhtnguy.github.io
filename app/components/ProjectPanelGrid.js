@@ -86,7 +86,7 @@ const projects = [
 		alt: "American Journal of Irish Studies preview",
 		title: "AJIS — American Journal of Irish Studies",
 		tags: ["design", "dev"],
-		href: null,
+		href: "/projects/ajis",
 		fit: "contain",
 		padding: true,
 		imageClass: "scale-[0.88] object-contain",
