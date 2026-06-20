@@ -16,9 +16,9 @@ export default function About() {
 				</h1>
 				<div className="space-y-8 text-left text-primary-black leading-relaxed md:text-base">
 					<p>
-						I'm a designer and creative technologist who cares about making
+						I&apos;m a designer and creative technologist who cares about making
 						technology feel more human. I studied Computer Science at UC Irvine
-						and recently completed my master's in Integrated Design and Media at
+						and recently completed my master&apos;s in Integrated Design and Media at
 						NYU.
 					</p>
 					<p>
