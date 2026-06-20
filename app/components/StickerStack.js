@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import {
 	motion,
 	useMotionValueEvent,
@@ -8,8 +9,9 @@ import {
 	useScroll,
 	useTransform,
 } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { cn } from "@/utils/cn";
+import { useStickerStackNav } from "./StickerStackNavContext";
 
 const stickerSize =
 	"w-auto h-auto max-w-[280px] max-h-[240px] sm:max-w-[340px] sm:max-h-[290px] md:max-w-[400px] md:max-h-[340px] object-contain";
@@ -29,7 +31,7 @@ const stickers = [
 		width: 900,
 		height: 671,
 		zIndex: "z-40",
-		endPosition: { left: "0%", top: "0%", x: "20%", y: "10%" },
+		endPosition: { left: "0%", top: "0%", x: "20%", y: "22%" },
 		mobileEndPosition: { x: "-10%", y: "45%" },
 		endRotate: -8,
 		endScale: 0.65,
@@ -167,7 +169,7 @@ function AnimatedSticker({
 
 	return (
 		<motion.div
-			className={cn("absolute", sticker.zIndex)}
+			className={cn("pointer-events-none absolute", sticker.zIndex)}
 			style={{ left, top, x, y, scale, rotate }}
 		>
 			<motion.div
@@ -207,9 +209,10 @@ export default function StickerStack() {
 	const containerRef = useRef(null);
 	const reducedMotion = useReducedMotion();
 	const isMobile = useIsMobile();
+	const { setIsStackOpen } = useStickerStackNav();
 	const [cornersReady, setCornersReady] = useState(!!reducedMotion);
+	const [textInteractive, setTextInteractive] = useState(!!reducedMotion);
 	const [scrollIndicatorReady, setScrollIndicatorReady] = useState(false);
-	const [isAtScrollTop, setIsAtScrollTop] = useState(true);
 
 	const { scrollYProgress } = useScroll({
 		target: containerRef,
@@ -223,12 +226,23 @@ export default function StickerStack() {
 	);
 
 	useMotionValueEvent(animationProgress, "change", (latest) => {
-		setCornersReady(latest >= CORNER_THRESHOLD);
+		const isOpen = latest >= CORNER_THRESHOLD;
+		setCornersReady(isOpen);
+		setTextInteractive(latest >= 0.55);
+		setIsStackOpen(isOpen);
 	});
 
-	useMotionValueEvent(scrollYProgress, "change", (latest) => {
-		setIsAtScrollTop(latest <= 0.06);
-	});
+	useEffect(() => {
+		if (reducedMotion) {
+			setIsStackOpen(true);
+		}
+
+		return () => setIsStackOpen(false);
+	}, [reducedMotion, setIsStackOpen]);
+
+	useLayoutEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 
 	useEffect(() => {
 		if (reducedMotion) return;
@@ -240,8 +254,7 @@ export default function StickerStack() {
 		return () => clearTimeout(timer);
 	}, [reducedMotion]);
 
-	const showScrollIndicator =
-		scrollIndicatorReady && isAtScrollTop && !reducedMotion;
+	const showScrollIndicator = scrollIndicatorReady && !reducedMotion;
 
 	const textOpacity = useTransform(
 		animationProgress,
@@ -262,29 +275,34 @@ export default function StickerStack() {
 		>
 			<div className="sticky top-0 h-svh w-full overflow-visible">
 				<motion.div
-					className="pointer-events-none absolute inset-0 z-0 flex origin-center items-center justify-center px-8 sm:px-12 md:px-36 py-12"
+					className="pointer-events-none absolute inset-0 z-20 flex origin-center items-center justify-center px-8 sm:px-12 md:px-36 py-12"
 					style={{ opacity: textOpacity, scale: textScale }}
 				>
 					<div className="flex max-w-md sm:max-w-lg flex-col items-center text-center">
-						<h1
-							className={cn(
-								"font-medium text-primary-blue text-3xl sm:text-4xl md:text-4xl tracking-[.25em]",
-							)}
-						>
-							MINH NGUYEN
+						<h1 className="w-full">
+							<span
+								role="img"
+								aria-label="Minh Nguyen"
+								className="mx-auto block aspect-[514/79] w-full max-w-[240px] bg-primary-blue sm:max-w-[320px] md:max-w-[380px] [mask-image:url(/MyName.svg)] [mask-size:contain] [mask-repeat:no-repeat] [mask-position:center] [-webkit-mask-image:url(/MyName.svg)] [-webkit-mask-size:contain] [-webkit-mask-repeat:no-repeat] [-webkit-mask-position:center]"
+							/>
 						</h1>
-						<p
-							className={cn(
-								"mt-4 sm:mt-6 leading-relaxed text-black text-base sm:text-base md:text-xl font-light",
-							)}
-						>
+						<p className="mt-4 sm:mt-6 leading-relaxed text-black text-base sm:text-base md:text-xl font-light">
 							is a designer / creative technologist who works across design,
 							code, and AI to bring ideas to life.
 						</p>
+						{/* <Link
+							href="/about"
+							className={cn(
+								"mt-4 sm:mt-6 inline-flex items-center gap-1 leading-relaxed text-neutral-400 text-base sm:text-base md:text-base font-light underline underline-offset-4 decoration-transparent transition-[color,text-decoration-color] duration-300 ease-in-out hover:text-primary-blue hover:decoration-primary-blue",
+								textInteractive ? "pointer-events-auto" : "pointer-events-none",
+							)}
+						>
+							More
+						</Link> */}
 					</div>
 				</motion.div>
 
-				<div className="relative z-10 h-full w-full overflow-visible">
+				<div className="pointer-events-none relative z-10 h-full w-full overflow-visible">
 					{stickers.map((sticker) => (
 						<AnimatedSticker
 							key={sticker.src}

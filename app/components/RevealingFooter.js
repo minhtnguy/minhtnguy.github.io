@@ -66,9 +66,9 @@ export default function RevealingFooter() {
 			className="revealing-footer fixed bottom-0 left-0 z-[1] w-full bg-neutral-100"
 			aria-label="Site footer"
 		>
-			<div className="relative z-[1] mx-auto flex max-w-xl flex-col items-center px-6 pb-20 pt-32 sm:pb-28 sm:pt-40">
+			<div className="relative z-[1] mx-auto flex max-w-xl flex-col items-center px-6 pb-14 pt-20 sm:pb-20 sm:pt-28">
 				<motion.div
-					className="relative inline-block w-full max-w-[120px] origin-center drop-shadow-[0_2px_8px_rgba(0,0,0,0.12)] sm:max-w-[150px]"
+					className="relative inline-block w-full max-w-[100px] origin-center drop-shadow-[0_2px_8px_rgba(0,0,0,0.12)] sm:max-w-[130px]"
 					whileHover={reducedMotion ? undefined : { scale: 1.08 }}
 					transition={{ duration: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
 				>
@@ -81,8 +81,8 @@ export default function RevealingFooter() {
 					/>
 				</motion.div>
 
-				<nav className="mt-8 sm:mt-12" aria-label="Footer links">
-					<ul className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm font-light text-neutral-500 sm:text-sm ">
+				<nav className="mt-6 sm:mt-8" aria-label="Footer links">
+					<ul className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm font-md text-neutral-500 sm:text-sm ">
 						{footerLinks.map((link, index) => (
 							<li key={link.label} className="flex items-center gap-3">
 								{index > 0 ? (
@@ -98,7 +98,7 @@ export default function RevealingFooter() {
 												rel: "noopener noreferrer",
 											}
 										: {})}
-									className="uppercase tracking-widest transition-colors hover:text-neutral-800"
+									className="uppercase tracking-widest transition-colors hover:text-primary-blue"
 								>
 									{link.label}
 								</Link>
@@ -107,7 +107,13 @@ export default function RevealingFooter() {
 					</ul>
 				</nav>
 
-				<p className="mt-5 text-xs font-light text-neutral-400 sm:text-xs">
+				<span
+					role="img"
+					aria-label="Minh Nguyen"
+					className="mx-auto mt-12 block aspect-[514/79] w-full max-w-[140px] bg-primary-blue sm:max-w-[180px] [mask-image:url(/MyName.svg)] [mask-size:contain] [mask-repeat:no-repeat] [mask-position:center] [-webkit-mask-image:url(/MyName.svg)] [-webkit-mask-size:contain] [-webkit-mask-repeat:no-repeat] [-webkit-mask-position:center]"
+				/>
+
+				<p className="mt-4 text-xs font-light text-neutral-400 sm:text-xs">
 					Last updated June 2026
 				</p>
 			</div>
