@@ -23,11 +23,13 @@ module.exports = {
 					"conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
 			},
 			colors: {
-				"primary-blue": "#1D4ED8",
+				"primary-blue": "#1B3DB7",
 				"primary-black": "#2A2D34",
 			},
 			boxShadow: {
 				blue: "0 4px 14px 0 rgba(255, 0, 0, 0.1)",
+				large:
+					"0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)",
 			},
 			animation: {
 				first: "moveVertical 30s ease infinite",

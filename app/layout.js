@@ -1,8 +1,10 @@
 import { GeistSans } from "geist/font/sans";
 import { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import "./globals.css";
 import ConditionalFooter from "./components/ConditionalFooter";
+import Nav from "./components/Nav";
+import { StickerStackNavProvider } from "./components/StickerStackNavContext";
+import "./globals.css";
 
 export const metadata = {
 	title: "Minh Nguyen",
@@ -13,11 +15,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en" className={GeistSans.className}>
-			<body className="pb-24">
-				{/* Main content sits on top (z-index 2) so it reveals the footer as you scroll */}
-				<main className="relative z-[2] min-h-screen rounded-b-2xl bg-white">
-					{children}
-				</main>
+			<body>
+				<StickerStackNavProvider>
+					<main className="relative z-[2] min-h-screen bg-white shadow-[0_12px_32px_-6px_rgba(0,0,0,0.12)]">
+						<Nav />
+						{children}
+					</main>
+				</StickerStackNavProvider>
 				<ConditionalFooter />
 				<Analytics />
 			</body>

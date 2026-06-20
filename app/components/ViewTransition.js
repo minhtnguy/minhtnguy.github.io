@@ -9,7 +9,21 @@ export default function ViewTransition({
 	exit = { opacity: 0, y: 0 },
 	transition = { duration: 0.5 },
 	className = "",
+	nested = true,
 }) {
+	const content = nested ? (
+		<motion.div
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			transition={{ delay: 0.2, duration: 0.5 }}
+			suppressHydrationWarning
+		>
+			{children}
+		</motion.div>
+	) : (
+		children
+	);
+
 	return (
 		<motion.div
 			initial={initial}
@@ -19,14 +33,7 @@ export default function ViewTransition({
 			suppressHydrationWarning
 		>
 			<div className={className} suppressHydrationWarning>
-				<motion.div
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ delay: 0.2, duration: 0.5 }}
-					suppressHydrationWarning
-				>
-					{children}
-				</motion.div>
+				{content}
 			</div>
 		</motion.div>
 	);
