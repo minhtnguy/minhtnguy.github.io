@@ -18,8 +18,8 @@ export default function About() {
 					<p>
 						I&apos;m a designer and creative technologist who cares about making
 						technology feel more human. I studied Computer Science at UC Irvine
-						and recently completed my master&apos;s in Integrated Design and Media at
-						NYU.
+						and recently completed my master&apos;s in Integrated Design and
+						Media at NYU.
 					</p>
 					<p>
 						I view code as a creative medium, a way to prototype ideas and give
@@ -83,7 +83,7 @@ export default function About() {
 			</section>
 
 			<section className="mx-auto max-w-2xl px-8 pb-36">
-				<div className="space-y-4 text-left text-neutral-400 leading-relaxed md:text-base">
+				<div className="space-y-4 text-left text-primary-black leading-relaxed md:text-base">
 					<p>
 						This site was built using Next.js, Tailwind CSS, and Framer Motion —
 						with help from Cursor and Claude Code.
@@ -94,7 +94,7 @@ export default function About() {
 							href="https://tholman.com/cursor-effects/"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="underline underline-offset-4 decoration-neutral-400 transition-[color,text-decoration-color] duration-300 hover:text-primary-blue hover:decoration-primary-blue"
+							className="underline underline-offset-4 decoration-primary-black transition-[color,text-decoration-color] duration-300 hover:text-primary-blue hover:decoration-primary-blue"
 						>
 							cursor-effects
 						</Link>
