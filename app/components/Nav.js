@@ -14,6 +14,16 @@ export default function Nav() {
 	const isHome = pathname === "/";
 	const isVisible = !isHome || isStackOpen;
 
+	const scrollToProjects = (event) => {
+		if (!isHome) return;
+
+		event.preventDefault();
+		document.getElementById("projects")?.scrollIntoView({
+			behavior: reducedMotion ? "auto" : "smooth",
+		});
+		window.history.pushState(null, "", "/#projects");
+	};
+
 	return (
 		<>
 			{isVisible && !isHome && (
@@ -41,7 +51,10 @@ export default function Nav() {
 					className="pointer-events-none fixed inset-x-0 top-4 z-50 px-4 sm:px-6"
 				>
 					<nav className="pointer-events-auto mx-auto flex max-w-5xl items-center justify-between rounded-full border border-gray-200 bg-gradient-to-b from-gray-100/60 to-gray-50/60 px-4 py-3 backdrop-blur-sm sm:px-8">
-						<Link href="/">
+						<Link
+							href="/"
+							className="inline-block transition-transform duration-300 ease-in-out active:scale-95"
+						>
 							<div className="flex items-center space-x-3">
 								<span
 									role="img"
@@ -53,14 +66,15 @@ export default function Nav() {
 
 						<div className="flex items-center space-x-12">
 							<Link
-								href="/"
-								className="text-xl font-medium text-primary-black transition-transform duration-300 ease-in-out hover:rotate-[-1.5deg] hover:text-primary-blue"
+								href="/#projects"
+								onClick={scrollToProjects}
+								className="text-xl font-medium text-primary-black transition-transform duration-300 ease-in-out hover:rotate-[-1.5deg] hover:text-primary-blue active:scale-95"
 							>
 								Work
 							</Link>
 							<Link
 								href="/about"
-								className="text-xl font-medium text-primary-black transition-transform duration-300 ease-in-out hover:rotate-[1.5deg] hover:text-primary-blue"
+								className="text-xl font-medium text-primary-black transition-transform duration-300 ease-in-out hover:rotate-[1.5deg] hover:text-primary-blue active:scale-95"
 							>
 								About
 							</Link>
