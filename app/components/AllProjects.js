@@ -5,8 +5,7 @@ export default function AllProjects() {
 		<>
 			<div className="w-full border-t border-gray-300 mt-12 mb-6" />
 			<Link
-				href="/"
-				target=""
+				href="/#projects"
 				className="text-gray-500 hover:text-primary-blue text-base space-x-1 flex items-center hover:ml-3 duration-300 ease-in-out"
 			>
 				<p>all projects</p>
