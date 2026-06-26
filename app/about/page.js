@@ -14,18 +14,20 @@ export default function About() {
 						className="block aspect-[176.31/79.61] w-full max-w-[180px] origin-left rotate-[4deg] bg-primary-blue sm:max-w-[230px] [mask-image:url(/Hello.svg)] [mask-size:contain] [mask-repeat:no-repeat] [mask-position:left_center] [-webkit-mask-image:url(/Hello.svg)] [-webkit-mask-size:contain] [-webkit-mask-repeat:no-repeat] [-webkit-mask-position:left_center]"
 					/>
 				</h1>
-				<div className="space-y-8 text-left text-primary-black leading-relaxed md:text-base">
+				<div className="space-y-6 text-left text-primary-black leading-relaxed md:text-base">
 					<p>
-						I&apos;m a designer and creative technologist who cares about making
-						technology feel more human. I studied Computer Science at UC Irvine
-						and recently completed my master&apos;s in Integrated Design and
-						Media at NYU.
+						I am a designer and creative technologist who cares about making
+						technology feel more human and approachable.
 					</p>
 					<p>
 						I view code as a creative medium, a way to prototype ideas and give
 						form to new kinds of experiences. My work often takes shape through
 						demos, prototypes, and interactive systems that explore future
 						possibilities.
+					</p>
+					<p>
+						I also studied Computer Science at UC Irvine and recently completed
+						my master&apos;s in Integrated Design and Media at NYU.
 					</p>
 					<p>
 						In my work and everyday life, I am inspired by pop culture, music,
